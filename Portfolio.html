@@ -33,3 +33,876 @@ padding: 30px; }
 </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | แฟ้มสะสมผลงาน</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", "Tahoma", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eaf6ff, #f8fbff);
+            color: #243447;
+            min-height: 100vh;
+        }
+
+        /* ===== Navigation ===== */
+
+        nav {
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #315b7d;
+            margin: 0 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #008dcc;
+        }
+
+        /* ===== Page ===== */
+
+        .page {
+            display: none;
+            min-height: calc(100vh - 70px);
+            padding: 60px 8% 110px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Hero ===== */
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            color: #176b9e;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 27px;
+            color: #315b7d;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5d7183;
+        }
+
+        /* ===== Content ===== */
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h1 {
+            font-size: 42px;
+            color: #176b9e;
+            margin-bottom: 12px;
+        }
+
+        .title p {
+            color: #688092;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(34, 91, 125, 0.10);
+        }
+
+        .card h2 {
+            color: #176b9e;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.9;
+            color: #536777;
+        }
+
+        /* ===== Profile ===== */
+
+        .profile {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 230px;
+            height: 280px;
+            border-radius: 20px;
+            background: #dceefa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5c829d;
+            text-align: center;
+            border: 3px dashed #9bc9e4;
+        }
+
+        .profile-info h2 {
+            color: #176b9e;
+            margin-bottom: 20px;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        /* ===== Education ===== */
+
+        .timeline {
+            border-left: 4px solid #65b5df;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+        .timeline-item h2 {
+            color: #176b9e;
+            margin-bottom: 10px;
+        }
+
+        /* ===== University ===== */
+
+        .university {
+            text-align: center;
+            background: white;
+            padding: 50px 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(34,91,125,0.12);
+        }
+
+        .university .icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .university h2 {
+            color: #176b9e;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .university h3 {
+            color: #315b7d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* ===== Works ===== */
+
+        .works {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 7px 22px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-image {
+            height: 180px;
+            background: #dceefa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #66899e;
+        }
+
+        .work-content {
+            padding: 25px;
+        }
+
+        .work-content h2 {
+            color: #176b9e;
+            margin-bottom: 10px;
+        }
+
+        .work-content p {
+            color: #627585;
+            line-height: 1.7;
+        }
+
+        /* ===== Bottom Buttons ===== */
+
+        .bottom-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.97);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+            z-index: 999;
+        }
+
+        .btn {
+            border: none;
+            padding: 13px 25px;
+            border-radius: 30px;
+            background: #176b9e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0d527c;
+            transform: translateY(-2px);
+        }
+
+        .btn.home {
+            background: #6d91a8;
+        }
+
+        .btn.home:hover {
+            background: #506f83;
+        }
+
+        /* ===== Mobile ===== */
+
+        @media (max-width: 700px) {
+
+            nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+                white-space: nowrap;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .page {
+                padding: 40px 20px 100px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .title h1 {
+                font-size: 32px;
+            }
+
+            .profile {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: auto;
+            }
+
+            .works {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-buttons {
+                gap: 8px;
+            }
+
+            .btn {
+                padding: 11px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <a onclick="showPage('home')">หน้าแรก</a>
+    <a onclick="showPage('preface')">คำนำ</a>
+    <a onclick="showPage('about')">แนะนำตัว</a>
+    <a onclick="showPage('education')">การศึกษา</a>
+    <a onclick="showPage('university')">มหาวิทยาลัยที่อยากเข้า</a>
+    <a onclick="showPage('proud')">ผลงานที่ภูมิใจ</a>
+    <a onclick="showPage('projects')">โครงงาน/ชิ้นงาน</a>
+</nav>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 1 ======================== -->
+<!-- ================================================= -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <h1>PORTFOLIO</h1>
+
+        <h2>แฟ้มสะสมผลงาน</h2>
+
+        <p>
+            คณะสหเวชศาสตร์ สาขารังสีเทคนิค<br>
+            มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
+        </p>
+
+        <br>
+
+        <p>
+            แฟ้มสะสมผลงานฉบับนี้จัดทำขึ้นเพื่อรวบรวม
+            ประวัติส่วนตัว ประวัติการศึกษา ผลงาน
+            กิจกรรม และประสบการณ์ต่าง ๆ
+            ที่สะท้อนถึงความตั้งใจและความสนใจ
+            ในการศึกษาต่อด้านรังสีเทคนิค
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 2 ======================== -->
+<!-- ================================================= -->
+
+<section id="preface" class="page">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>คำนำ</h1>
+            <p>PREFACE</p>
+        </div>
+
+        <div class="card">
+
+            <p>
+                แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้
+                จัดทำขึ้นเพื่อรวบรวมข้อมูลเกี่ยวกับประวัติส่วนตัว
+                ประวัติการศึกษา ผลงาน กิจกรรม
+                โครงงาน และประสบการณ์ต่าง ๆ
+                ที่ได้สั่งสมตลอดช่วงการศึกษา
+            </p>
+
+            <br>
+
+            <p>
+                ข้าพเจ้ามีความสนใจในด้านวิทยาศาสตร์สุขภาพ
+                และมีความตั้งใจที่จะศึกษาต่อใน
+                คณะสหเวชศาสตร์ สาขารังสีเทคนิค
+                มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
+                เนื่องจากเป็นสาขาที่ผสมผสานความรู้
+                ด้านวิทยาศาสตร์ เทคโนโลยี
+                และการดูแลผู้ป่วยเข้าด้วยกัน
+            </p>
+
+            <br>
+
+            <p>
+                ข้าพเจ้าหวังว่าแฟ้มสะสมผลงานฉบับนี้
+                จะช่วยสะท้อนถึงความสามารถ ความตั้งใจ
+                ความรับผิดชอบ และความพร้อม
+                ในการศึกษาต่อในระดับมหาวิทยาลัย
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 3 ======================== -->
+<!-- ================================================= -->
+
+<section id="about" class="page">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>แนะนำตัว</h1>
+            <p>ABOUT ME</p>
+        </div>
+
+        <div class="card profile">
+
+            <div class="profile-image">
+                ใส่รูปภาพ<br>ของฉัน
+            </div>
+
+            <div class="profile-info">
+
+                <h2>ข้อมูลส่วนตัว</h2>
+
+                <p><b>ชื่อ - นามสกุล:</b> น.ส.เขมิจรา เชตวัน</p>
+
+                <p><b>ชื่อเล่น:</b>โมจิ</p>
+
+                <p><b>วันเกิด:</b> 21 พฤษภาคม 2552</p>
+
+                <p><b>โรงเรียน:</b> บ้านบึงอุตสาหกรรมนุเคราะห์</p>
+
+                <p><b>แผนการเรียน:</b> เตรียมวิศวกรรมศาสตร์</p>
+
+                <p><b>ความสนใจ:</b> วิทยาศาสตร์ เทคโนโลยี
+                    และวิทยาศาสตร์สุขภาพ</p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>เป้าหมายของฉัน</h2>
+
+            <p>
+                เป้าหมายของข้าพเจ้าคือการได้ศึกษาต่อในสาขารังสีเทคนิค
+                และพัฒนาความรู้ความสามารถด้านเทคโนโลยีทางการแพทย์
+                เพื่อนำความรู้ไปใช้ในการทำงาน
+                และเป็นส่วนหนึ่งในการช่วยเหลือผู้ป่วย
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 4 ======================== -->
+<!-- ================================================= -->
+
+<section id="education" class="page">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>รายละเอียดการศึกษา</h1>
+            <p>EDUCATION</p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <h2>ระดับประถมศึกษา</h2>
+
+                <p>
+                    โรงเรียน ........................................
+                </p>
+
+                <p>
+                    ปีการศึกษา ........................................
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <h2>ระดับมัธยมศึกษาตอนต้น</h2>
+
+                <p>
+                    โรงเรียนบ้านบึงอุตสาหกรรมนุเคาะห์
+                </p>
+
+                <p>
+                    ปีการศึกษา 2566
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <h2>ระดับมัธยมศึกษาตอนปลาย</h2>
+
+                <p>
+                    โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
+                </p>
+
+                <p>
+                    แผนการเรียน เตรียมวิศวกรรมศาสตร์
+                </p>
+
+                <p>
+                    ปีการศึกษา2569
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 5 ======================== -->
+<!-- ================================================= -->
+
+<section id="university" class="page">
+
+    <div class="container">
+
+        <div class="title">
+
+            <h1>มหาวิทยาลัยที่อยากเข้า</h1>
+
+            <p>MY DREAM UNIVERSITY</p>
+
+        </div>
+
+        <div class="university">
+
+            <div class="icon">🎓</div>
+
+            <h2>
+                มหาวิทยาลัยธรรมศาสตร์
+            </h2>
+
+            <h3>
+                คณะสหเวชศาสตร์<br>
+                สาขารังสีเทคนิค<br>
+                ศูนย์รังสิต
+            </h3>
+
+            <p>
+                ข้าพเจ้ามีความตั้งใจที่จะศึกษาต่อ
+                ในคณะสหเวชศาสตร์ สาขารังสีเทคนิค
+                มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
+                เพราะมีความสนใจในวิทยาศาสตร์สุขภาพ
+                เทคโนโลยีทางการแพทย์
+                และการนำความรู้ไปใช้ในการดูแลผู้ป่วย
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 6 ======================== -->
+<!-- ================================================= -->
+
+<section id="proud" class="page">
+
+    <div class="container">
+
+        <div class="title">
+
+            <h1>ผลงานที่ภูมิใจ</h1>
+
+            <p>PROUD OF MY WORK</p>
+
+        </div>
+
+        <div class="works">
+
+            <div class="work-card">
+
+                <div class="work-image">
+                    รูปผลงานที่ 1
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 1</h2>
+
+                    <p>
+                        ใส่รายละเอียดเกี่ยวกับผลงาน
+                        เช่น ชื่อกิจกรรม หน้าที่
+                        สิ่งที่ได้รับ และความภาคภูมิใจ
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <div class="work-image">
+                    รูปผลงานที่ 2
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 2</h2>
+
+                    <p>
+                        ใส่รายละเอียดเกี่ยวกับผลงาน
+                        เช่น รางวัล กิจกรรม
+                        หรือประสบการณ์ที่ภาคภูมิใจ
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <div class="work-image">
+                    รูปผลงานที่ 3
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 3</h2>
+
+                    <p>
+                        ใส่รายละเอียดเกี่ยวกับผลงาน
+                        และสิ่งที่ได้รับจากประสบการณ์
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <div class="work-image">
+                    รูปผลงานที่ 4
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 4</h2>
+
+                    <p>
+                        ใส่รายละเอียดเกี่ยวกับผลงาน
+                        หรือกิจกรรมที่ต้องการนำเสนอ
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================== PAGE 7 ======================== -->
+<!-- ================================================= -->
+
+<section id="projects" class="page">
+
+    <div class="container">
+
+        <div class="title">
+
+            <h1>โครงงาน / ชิ้นงาน</h1>
+
+            <p>PROJECTS &amp; WORKS</p>
+
+        </div>
+
+        <div class="works">
+
+            <div class="work-card">
+
+                <div class="work-image">
+                    รูปโครงงาน
+                </div>
+
+                <div class="work-content">
+
+                    <h2>โครงงานที่ 1</h2>
+
+                    <p>
+                        ชื่อโครงงาน: ....................................
+                    </p>
+
+                    <p>
+                        รายละเอียด: ....................................
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <div class="work-image">
+                    รูปชิ้นงาน
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ชิ้นงานที่ 1</h2>
+
+                    <p>
+                        ชื่อชิ้นงาน: ....................................
+                    </p>
+
+                    <p>
+                        รายละเอียด: ....................................
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================ BOTTOM BUTTONS ================= -->
+<!-- ================================================= -->
+
+<div class="bottom-buttons">
+
+    <button class="btn home" onclick="showPage('home')">
+        🏠 กลับไปหน้าแรก
+    </button>
+
+    <button class="btn" onclick="nextPage()">
+        หน้าถัดไป →
+    </button>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    const pages = [
+        "home",
+        "preface",
+        "about",
+        "education",
+        "university",
+        "proud",
+        "projects"
+    ];
+
+    let currentPage = 0;
+
+
+    function showPage(pageId) {
+
+        pages.forEach(function(page) {
+
+            document.getElementById(page).classList.remove("active");
+
+        });
+
+        document.getElementById(pageId).classList.add("active");
+
+        currentPage = pages.indexOf(pageId);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    function nextPage() {
+
+        if (currentPage < pages.length - 1) {
+
+            currentPage++;
+
+            showPage(pages[currentPage]);
+
+        } else {
+
+            showPage("home");
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
