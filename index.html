@@ -2,30 +2,139 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>หน้าแนะนำตัวของฉัน</title>
+
 <style>
-body {#E46C88
-background-color: ##E46C88; color: #255;
-text-align: center; padding: 50px;
 
+* {
+    box-sizing: border-box;
 }
+
+body {
+    background-color: #E46C88;
+    color: #255;
+    text-align: center;
+    padding: 50px 20px;
+    margin: 0;
+    font-family: Arial, Tahoma, sans-serif;
+    min-height: 100vh;
+}
+
 .card {
-background:pink ; border-radius: 50px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
+    background: pink;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 45px 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #255;
+}
+
+/* ===== ปุ่มเข้าสู่ Portfolio ===== */
+
+.portfolio-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 30px;
+
+    background-color: #176b9e;
+    color: white;
+
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+}
+
+.portfolio-btn:hover {
+    background-color: #0d527c;
+    transform: translateY(-3px);
+}
+
+/* ===== สำหรับโทรศัพท์ ===== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .card {
+        margin: 30px auto;
+        padding: 35px 20px;
+        border-radius: 35px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .portfolio-btn {
+        font-size: 16px;
+        padding: 13px 25px;
+    }
 
 }
-h1 { color: #2c3e50; }
-p { font-size: 18px; line-height: 1.6; }
+
 </style>
+
 </head>
+
 <body>
+
 <div class="card">
-<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีค่ะ! หนูชื่อ <strong>เขมจิรา (Khamjira)</strong></p>
-<p>ขณะนี้ก;าลังศึกษา/สนใจด้าน Computer Science & Engineering</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
+
+    <h1>
+        ยินดีต้อนรับสู่โปรไฟล์ของฉัน
+    </h1>
+
+    <p>
+        สวัสดีค่ะ! หนูชื่อ
+        <strong>เขมจิรา (Khamjira)</strong>
+    </p>
+
+    <p>
+        ขณะนี้กำลังศึกษา/สนใจด้าน
+        Computer Science & Engineering
+    </p>
+
+    <p>
+        นี่คือเว็บไซต์แรกของฉัน
+        ที่โฮสต์บน GitHub Pages!
+    </p>
+
+    <!-- ปุ่มไปหน้า Portfolio -->
+
+    <a href="port.html" class="portfolio-btn">
+        📁 เข้าสู่แฟ้มสะสมผลงาน
+    </a>
+
 </div>
+
 </body>
 </html>
