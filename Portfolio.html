@@ -1,41 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟ้มสะสมงานของฉัน  </title>
-<style>
-body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #F893B5; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-</style>
-</head>
-<body>
-<div class="container">
-<h1> แฟ้มสะสมงาน (Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
-<!-- กล่องผลงานชนที่ ้ิ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชื้นงานวิทยาศาสตร์คำนวณ </h3>
-<p>รายละเอียดชิ้นงาน : เขียนอธิบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง </p>
-</div>
-<!-- กล่องผลงานชนที่ ้ิ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชิ้นงาน : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
-</div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -46,7 +11,7 @@ padding: 30px; }
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "Arial", "Tahoma", sans-serif;
+            font-family: Arial, Tahoma, sans-serif;
         }
 
         body {
@@ -55,15 +20,17 @@ padding: 30px; }
             min-height: 100vh;
         }
 
-        /* ===== Navigation ===== */
+        /* ===== เมนูด้านบน ===== */
 
         nav {
             width: 100%;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.96);
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            padding: 15px 30px;
+            padding: 15px 20px;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -72,23 +39,25 @@ padding: 30px; }
         nav a {
             text-decoration: none;
             color: #315b7d;
-            margin: 0 12px;
+            padding: 9px 13px;
             font-weight: bold;
             cursor: pointer;
+            border-radius: 10px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #008dcc;
+            color: white;
+            background: #65b5df;
         }
 
-        /* ===== Page ===== */
+        /* ===== หน้า ===== */
 
         .page {
             display: none;
             min-height: calc(100vh - 70px);
-            padding: 60px 8% 110px;
-            animation: fadeIn 0.5s ease;
+            padding: 60px 8% 120px;
+            animation: fadeIn 0.4s ease;
         }
 
         .page.active {
@@ -107,7 +76,12 @@ padding: 30px; }
             }
         }
 
-        /* ===== Hero ===== */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* ===== หน้าแรก ===== */
 
         .hero {
             text-align: center;
@@ -115,29 +89,26 @@ padding: 30px; }
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 55px;
             color: #176b9e;
             margin-bottom: 20px;
         }
 
         .hero h2 {
-            font-size: 27px;
+            font-size: 28px;
             color: #315b7d;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .hero p {
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1.9;
             color: #5d7183;
-        }
-
-        /* ===== Content ===== */
-
-        .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: auto;
         }
+
+        /* ===== หัวข้อ ===== */
 
         .title {
             text-align: center;
@@ -154,12 +125,14 @@ padding: 30px; }
             color: #688092;
         }
 
+        /* ===== กล่องข้อมูล ===== */
+
         .card {
             background: white;
             border-radius: 20px;
             padding: 35px;
             margin-bottom: 25px;
-            box-shadow: 0 8px 25px rgba(34, 91, 125, 0.10);
+            box-shadow: 0 8px 25px rgba(34,91,125,0.10);
         }
 
         .card h2 {
@@ -172,7 +145,7 @@ padding: 30px; }
             color: #536777;
         }
 
-        /* ===== Profile ===== */
+        /* ===== แนะนำตัว ===== */
 
         .profile {
             display: grid;
@@ -192,6 +165,7 @@ padding: 30px; }
             color: #5c829d;
             text-align: center;
             border: 3px dashed #9bc9e4;
+            font-size: 18px;
         }
 
         .profile-info h2 {
@@ -204,7 +178,7 @@ padding: 30px; }
             line-height: 1.8;
         }
 
-        /* ===== Education ===== */
+        /* ===== การศึกษา ===== */
 
         .timeline {
             border-left: 4px solid #65b5df;
@@ -224,7 +198,12 @@ padding: 30px; }
             margin-bottom: 10px;
         }
 
-        /* ===== University ===== */
+        .timeline-item p {
+            color: #536777;
+            line-height: 1.8;
+        }
+
+        /* ===== มหาวิทยาลัย ===== */
 
         .university {
             text-align: center;
@@ -248,10 +227,15 @@ padding: 30px; }
         .university h3 {
             color: #315b7d;
             margin-bottom: 20px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* ===== Works ===== */
+        .university p {
+            color: #536777;
+            line-height: 1.9;
+        }
+
+        /* ===== ผลงาน ===== */
 
         .works {
             display: grid;
@@ -278,6 +262,7 @@ padding: 30px; }
             justify-content: center;
             align-items: center;
             color: #66899e;
+            font-size: 18px;
         }
 
         .work-content {
@@ -291,10 +276,11 @@ padding: 30px; }
 
         .work-content p {
             color: #627585;
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
-        /* ===== Bottom Buttons ===== */
+        /* ===== ปุ่มด้านล่าง ===== */
 
         .bottom-buttons {
             position: fixed;
@@ -305,7 +291,7 @@ padding: 30px; }
             padding: 14px 20px;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
             z-index: 999;
         }
@@ -335,27 +321,35 @@ padding: 30px; }
             background: #506f83;
         }
 
-        /* ===== Mobile ===== */
+        /* ===== มือถือ ===== */
 
         @media (max-width: 700px) {
 
             nav {
                 overflow-x: auto;
                 justify-content: flex-start;
+                flex-wrap: nowrap;
                 white-space: nowrap;
             }
 
             nav a {
-                margin: 0 8px;
                 font-size: 14px;
             }
 
             .page {
-                padding: 40px 20px 100px;
+                padding: 40px 20px 110px;
+            }
+
+            .hero {
+                padding: 60px 10px;
             }
 
             .hero h1 {
-                font-size: 35px;
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
             }
 
             .title h1 {
@@ -376,12 +370,13 @@ padding: 30px; }
             }
 
             .bottom-buttons {
-                gap: 8px;
+                gap: 6px;
+                padding: 10px;
             }
 
             .btn {
-                padding: 11px 16px;
-                font-size: 14px;
+                padding: 10px 13px;
+                font-size: 13px;
             }
         }
     </style>
@@ -389,7 +384,9 @@ padding: 30px; }
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- ================================================= -->
+<!-- เมนู -->
+<!-- ================================================= -->
 
 <nav>
     <a onclick="showPage('home')">หน้าแรก</a>
@@ -403,7 +400,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 1 ======================== -->
+<!-- หน้า 1 : หน้าแรก -->
 <!-- ================================================= -->
 
 <section id="home" class="page active">
@@ -435,7 +432,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 2 ======================== -->
+<!-- หน้า 2 : คำนำ -->
 <!-- ================================================= -->
 
 <section id="preface" class="page">
@@ -486,7 +483,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 3 ======================== -->
+<!-- หน้า 3 : แนะนำตัว -->
 <!-- ================================================= -->
 
 <section id="about" class="page">
@@ -501,25 +498,44 @@ padding: 30px; }
         <div class="card profile">
 
             <div class="profile-image">
-                ใส่รูปภาพ<br>ของฉัน
+                ใส่รูปภาพ<br>
+                ของฉัน
             </div>
 
             <div class="profile-info">
 
                 <h2>ข้อมูลส่วนตัว</h2>
 
-                <p><b>ชื่อ - นามสกุล:</b> น.ส.เขมิจรา เชตวัน</p>
+                <p>
+                    <b>ชื่อ - นามสกุล:</b>
+                    น.ส.เขมิจรา เชตวัน
+                </p>
 
-                <p><b>ชื่อเล่น:</b>โมจิ</p>
+                <p>
+                    <b>ชื่อเล่น:</b>
+                    โมจิ
+                </p>
 
-                <p><b>วันเกิด:</b> 21 พฤษภาคม 2552</p>
+                <p>
+                    <b>วันเกิด:</b>
+                    21 พฤษภาคม 2552
+                </p>
 
-                <p><b>โรงเรียน:</b> บ้านบึงอุตสาหกรรมนุเคราะห์</p>
+                <p>
+                    <b>โรงเรียน:</b>
+                    บ้านบึงอุตสาหกรรมนุเคราะห์
+                </p>
 
-                <p><b>แผนการเรียน:</b> เตรียมวิศวกรรมศาสตร์</p>
+                <p>
+                    <b>แผนการเรียน:</b>
+                    เตรียมวิศวกรรมศาสตร์
+                </p>
 
-                <p><b>ความสนใจ:</b> วิทยาศาสตร์ เทคโนโลยี
-                    และวิทยาศาสตร์สุขภาพ</p>
+                <p>
+                    <b>ความสนใจ:</b>
+                    วิทยาศาสตร์ เทคโนโลยี
+                    และวิทยาศาสตร์สุขภาพ
+                </p>
 
             </div>
 
@@ -544,7 +560,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 4 ======================== -->
+<!-- หน้า 4 : การศึกษา -->
 <!-- ================================================= -->
 
 <section id="education" class="page">
@@ -556,13 +572,14 @@ padding: 30px; }
             <p>EDUCATION</p>
         </div>
 
+        <div class="timeline">
 
             <div class="timeline-item">
 
                 <h2>ระดับมัธยมศึกษาตอนต้น</h2>
 
                 <p>
-                    โรงเรียนบ้านบึงอุตสาหกรรมนุเคาะห์
+                    โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
                 </p>
 
                 <p>
@@ -584,7 +601,7 @@ padding: 30px; }
                 </p>
 
                 <p>
-                    ปีการศึกษา2569
+                    ปีการศึกษา 2569
                 </p>
 
             </div>
@@ -597,7 +614,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 5 ======================== -->
+<!-- หน้า 5 : มหาวิทยาลัย -->
 <!-- ================================================= -->
 
 <section id="university" class="page">
@@ -643,7 +660,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 6 ======================== -->
+<!-- หน้า 6 : ผลงานที่ภูมิใจ -->
 <!-- ================================================= -->
 
 <section id="proud" class="page">
@@ -671,7 +688,7 @@ padding: 30px; }
                     <h2>ผลงานที่ 1</h2>
 
                     <p>
-                    เป็นสตาฟวันวิทยาศาสตร์และเทคโนโลยี
+                        เป็นสตาฟวันวิทยาศาสตร์และเทคโนโลยี
                     </p>
 
                 </div>
@@ -690,16 +707,15 @@ padding: 30px; }
                     <h2>ผลงานที่ 2</h2>
 
                     <p>
-                        ไปเข้าร่วมworkshop kmitl (mini startup camp)
+                        เข้าร่วม Workshop KMITL
+                        (Mini Startup Camp)
                     </p>
 
                 </div>
 
             </div>
 
-
-            <div class="work-card">
-
+        </div>
 
     </div>
 
@@ -707,7 +723,7 @@ padding: 30px; }
 
 
 <!-- ================================================= -->
-<!-- ================== PAGE 7 ======================== -->
+<!-- หน้า 7 : โครงงาน -->
 <!-- ================================================= -->
 
 <section id="projects" class="page">
@@ -735,11 +751,14 @@ padding: 30px; }
                     <h2>โครงงานที่ 1</h2>
 
                     <p>
-                        ชื่อโครงงาน:สบู่เด้งดึ๋งพกพา
+                        <b>ชื่อโครงงาน:</b>
+                        สบู่เด้งดึ๋งพกพา
                     </p>
 
                     <p>
-                        รายละเอียด จัดทำขึ้นเพื่อพัฒนาสบู่ที่พาง่ายและสะดวกสะบายใช้งานสะดวก
+                        <b>รายละเอียด:</b>
+                        จัดทำขึ้นเพื่อพัฒนาสบู่ที่พกพาง่าย
+                        สะดวกสบาย และใช้งานได้สะดวก
                     </p>
 
                 </div>
@@ -753,17 +772,38 @@ padding: 30px; }
                     รูปชิ้นงาน
                 </div>
 
+                <div class="work-content">
+
+                    <h2>ชิ้นงานที่ 2</h2>
+
+                    <p>
+                        สามารถเพิ่มรายละเอียด
+                        และรูปภาพของชิ้นงานได้ที่นี่
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 
 <!-- ================================================= -->
-<!-- ================ BOTTOM BUTTONS ================= -->
+<!-- ปุ่มด้านล่าง -->
 <!-- ================================================= -->
 
 <div class="bottom-buttons">
 
-    <button class="btn home" onclick="showPage('home')">
-        🏠 กลับไปหน้าแรก
+    <button class="btn home" onclick="goHome()">
+        🏠 กลับหน้าแรก
+    </button>
+
+    <button class="btn" onclick="previousPage()">
+        ← ย้อนกลับ
     </button>
 
     <button class="btn" onclick="nextPage()">
@@ -773,32 +813,44 @@ padding: 30px; }
 </div>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
 
 <script>
 
-    const pages = [
-        "home",
-        "preface",
-        "about",
-        "education",
-        "university",
-        "proud",
-        "projects"
-    ];
+const pages = [
+    "home",
+    "preface",
+    "about",
+    "education",
+    "university",
+    "proud",
+    "projects"
+];
 
-    let currentPage = 0;
+let currentPage = 0;
 
 
-    function showPage(pageId) {
+/* ===== เปลี่ยนหน้า ===== */
 
-        pages.forEach(function(page) {
+function showPage(pageId) {
 
-            document.getElementById(page).classList.remove("active");
+    pages.forEach(function(id) {
 
-        });
+        const page = document.getElementById(id);
 
-        document.getElementById(pageId).classList.add("active");
+        if (page) {
+            page.classList.remove("active");
+        }
+
+    });
+
+    const target = document.getElementById(pageId);
+
+    if (target) {
+
+        target.classList.add("active");
 
         currentPage = pages.indexOf(pageId);
 
@@ -807,23 +859,52 @@ padding: 30px; }
             behavior: "smooth"
         });
     }
+}
 
 
-    function nextPage() {
+/* ===== หน้าถัดไป ===== */
 
-        if (currentPage < pages.length - 1) {
+function nextPage() {
 
-            currentPage++;
+    if (currentPage < pages.length - 1) {
 
-            showPage(pages[currentPage]);
+        currentPage++;
 
-        } else {
+        showPage(pages[currentPage]);
 
-            showPage("home");
+    } else {
 
-        }
+        showPage("home");
 
     }
+}
+
+
+/* ===== หน้าย้อนกลับ ===== */
+
+function previousPage() {
+
+    if (currentPage > 0) {
+
+        currentPage--;
+
+        showPage(pages[currentPage]);
+
+    } else {
+
+        showPage("home");
+
+    }
+}
+
+
+/* ===== กลับหน้าแรก ===== */
+
+function goHome() {
+
+    window.location.href = "index.html";
+
+}
 
 </script>
 
