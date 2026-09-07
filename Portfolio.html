@@ -55,8 +55,6 @@ body {
     animation: floatUp 10s linear infinite;
 }
 
-/* ตำแหน่ง */
-
 .floating span:nth-child(1) {
     left: 5%;
     animation-delay: 0s;
@@ -127,9 +125,7 @@ body {
 
 nav {
     width: 100%;
-
     background: rgba(255,255,255,0.92);
-
     backdrop-filter: blur(12px);
 
     box-shadow:
@@ -152,7 +148,6 @@ nav {
 
 nav a {
     text-decoration: none;
-
     color: #9b5275;
 
     padding: 10px 15px;
@@ -218,7 +213,7 @@ nav a:hover {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
 }
 
@@ -475,7 +470,7 @@ nav a:hover {
 
 
 /* ================================================= */
-/* แอนิเมชันรูป */
+/* แอนิเมชัน */
 /* ================================================= */
 
 @keyframes imageFloat {
@@ -773,6 +768,91 @@ nav a:hover {
 
 
 /* ================================================= */
+/* การปฏิบัติงาน */
+/* ================================================= */
+
+.practice-box {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.practice-card {
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 28px rgba(208,91,139,0.12);
+
+    border: 2px solid rgba(255,182,211,0.25);
+
+    transition: all 0.4s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(208,91,139,0.20);
+}
+
+.practice-image {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    background: linear-gradient(
+        135deg,
+        #dff5ff,
+        #ffe0ed
+    );
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.practice-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.practice-card:hover img {
+    transform: scale(1.06);
+}
+
+.practice-content {
+    padding: 22px;
+
+    text-align: center;
+}
+
+.practice-content h2 {
+    color: #d95789;
+
+    margin-bottom: 10px;
+}
+
+.practice-content p {
+    color: #665c65;
+
+    line-height: 1.8;
+}
+
+
+/* ================================================= */
 /* ปุ่มด้านล่าง */
 /* ================================================= */
 
@@ -944,6 +1024,10 @@ nav a:hover {
         grid-template-columns: 1fr;
     }
 
+    .practice-box {
+        grid-template-columns: 1fr;
+    }
+
     .card {
         padding: 25px 20px;
     }
@@ -973,7 +1057,7 @@ nav a:hover {
 
 
 <!-- ================================================= -->
-<!-- หัวใจ ดาว และของตกแต่งลอย -->
+<!-- ของตกแต่ง -->
 <!-- ================================================= -->
 
 <div class="floating">
@@ -996,13 +1080,21 @@ nav a:hover {
 
 <nav>
 
-    <a onclick="showPage('home')">🏠 หน้าแรก</a>
+    <a onclick="showPage('home')">
+        🏠 หน้าแรก
+    </a>
 
-    <a onclick="showPage('preface')">🌸 คำนำ</a>
+    <a onclick="showPage('preface')">
+        🌸 คำนำ
+    </a>
 
-    <a onclick="showPage('about')">💗 แนะนำตัว</a>
+    <a onclick="showPage('about')">
+        💗 แนะนำตัว
+    </a>
 
-    <a onclick="showPage('education')">🎓 การศึกษา</a>
+    <a onclick="showPage('education')">
+        🎓 การศึกษา
+    </a>
 
     <a onclick="showPage('university')">
         🏫 มหาวิทยาลัยที่อยากเข้า
@@ -1014,6 +1106,10 @@ nav a:hover {
 
     <a onclick="showPage('projects')">
         💡 โครงงาน/ชิ้นงาน
+    </a>
+
+    <a onclick="showPage('practice')">
+        🧪 การปฏิบัติงาน
     </a>
 
 </nav>
@@ -1125,7 +1221,10 @@ nav a:hover {
 
             <div class="profile-image">
 
-                <img src="profile.jpg.jpeg" alt="รูปโปรไฟล์">
+                <img
+                    src="profile.jpg.jpeg"
+                    alt="รูปโปรไฟล์"
+                >
 
             </div>
 
@@ -1310,6 +1409,8 @@ nav a:hover {
         <div class="works">
 
 
+            <!-- ผลงาน 1 -->
+
             <div class="work-card">
 
                 <div class="work-image">
@@ -1334,6 +1435,8 @@ nav a:hover {
             </div>
 
 
+            <!-- ผลงาน 2 -->
+
             <div class="work-card">
 
                 <div class="work-image">
@@ -1352,6 +1455,195 @@ nav a:hover {
                     <p>
                         เข้าร่วม Workshop KMITL
                         (Mini Startup Camp)
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 3 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work3.jpg.jpeg"
+                        alt="ผลงานที่ 3"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 3</h2>
+
+                    <p>
+                        เข้าร่วมกิจกรรมทางวิทยาศาสตร์
+                        และเทคโนโลยี
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 4 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work4.jpg.jpeg"
+                        alt="ผลงานที่ 4"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 4</h2>
+
+                    <p>
+                        เข้าร่วมกิจกรรมพัฒนาทักษะ
+                        และการทำงานร่วมกับผู้อื่น
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 5 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work5.jpg.jpeg"
+                        alt="ผลงานที่ 5"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 5</h2>
+
+                    <p>
+                        กิจกรรมส่งเสริมการเรียนรู้
+                        ด้านวิทยาศาสตร์
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 6 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work6.jpg.jpeg"
+                        alt="ผลงานที่ 6"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 6</h2>
+
+                    <p>
+                        กิจกรรมการเรียนรู้
+                        และพัฒนาประสบการณ์
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 7 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work7.jpg.jpeg"
+                        alt="ผลงานที่ 7"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 7</h2>
+
+                    <p>
+                        เข้าร่วมกิจกรรมพัฒนาทักษะ
+                        การสื่อสารและการทำงานเป็นทีม
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 8 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work8.jpg.jpeg"
+                        alt="ผลงานที่ 8"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 8</h2>
+
+                    <p>
+                        ผลงานจากกิจกรรม
+                        ด้านวิทยาศาสตร์และเทคโนโลยี
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ผลงาน 9 -->
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work9.jpg.jpeg"
+                        alt="ผลงานที่ 9"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 9</h2>
+
+                    <p>
+                        กิจกรรมและประสบการณ์
+                        ที่ภาคภูมิใจ
                     </p>
 
                 </div>
@@ -1424,6 +1716,129 @@ nav a:hover {
 
 
 <!-- ================================================= -->
+<!-- หน้า 8 : การปฏิบัติงาน -->
+<!-- ================================================= -->
+
+<section id="practice" class="page">
+
+    <div class="container">
+
+        <div class="title">
+
+            <h1>การปฏิบัติงาน</h1>
+
+            <p>PRACTICAL EXPERIENCE</p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>ประสบการณ์การปฏิบัติงาน</h2>
+
+            <p>
+                รวบรวมภาพการปฏิบัติงาน กิจกรรม
+                และประสบการณ์ที่ได้ลงมือปฏิบัติจริง
+                เพื่อแสดงถึงความรับผิดชอบ
+                การทำงานร่วมกับผู้อื่น
+                และการเรียนรู้จากประสบการณ์
+            </p>
+
+        </div>
+
+
+        <div class="practice-box">
+
+
+            <!-- ปฏิบัติงาน 1 -->
+
+            <div class="practice-card">
+
+                <div class="practice-image">
+
+                    <img
+                        src="practice1.jpg.jpeg"
+                        alt="ภาพการปฏิบัติงานที่ 1"
+                    >
+
+                </div>
+
+                <div class="practice-content">
+
+                    <h2>การปฏิบัติงานที่ 1</h2>
+
+                    <p>
+                        ภาพกิจกรรมการปฏิบัติงาน
+                        และการเรียนรู้จากประสบการณ์จริง
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ปฏิบัติงาน 2 -->
+
+            <div class="practice-card">
+
+                <div class="practice-image">
+
+                    <img
+                        src="practice2.jpg.jpeg"
+                        alt="ภาพการปฏิบัติงานที่ 2"
+                    >
+
+                </div>
+
+                <div class="practice-content">
+
+                    <h2>การปฏิบัติงานที่ 2</h2>
+
+                    <p>
+                        การทำงานร่วมกับผู้อื่น
+                        และการฝึกทักษะการปฏิบัติ
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ปฏิบัติงาน 3 -->
+
+            <div class="practice-card">
+
+                <div class="practice-image">
+
+                    <img
+                        src="practice3.jpg.jpeg"
+                        alt="ภาพการปฏิบัติงานที่ 3"
+                    >
+
+                </div>
+
+                <div class="practice-content">
+
+                    <h2>การปฏิบัติงานที่ 3</h2>
+
+                    <p>
+                        การนำความรู้ไปประยุกต์ใช้
+                        ผ่านการลงมือปฏิบัติจริง
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
 <!-- ปุ่มด้านล่าง -->
 <!-- ================================================= -->
 
@@ -1466,7 +1881,8 @@ const pages = [
     "education",
     "university",
     "proud",
-    "projects"
+    "projects",
+    "practice"
 ];
 
 let currentPage = 0;
@@ -1554,7 +1970,7 @@ function previousPage() {
 
 function goHome() {
 
-    window.location.href = "index.html";
+    showPage("home");
 
 }
 
