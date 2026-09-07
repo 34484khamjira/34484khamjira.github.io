@@ -7,11 +7,6 @@
 <title>Portfolio | แฟ้มสะสมผลงาน</title>
 
 <style>
-
-/* ================================================= */
-/* พื้นฐาน */
-/* ================================================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -24,192 +19,61 @@ html {
 }
 
 body {
-    background:
-        radial-gradient(circle at 10% 20%, rgba(255,182,211,0.45), transparent 25%),
-        radial-gradient(circle at 90% 80%, rgba(180,225,255,0.45), transparent 25%),
-        linear-gradient(135deg, #fff0f6, #ffe5f0, #eaf7ff);
-
-    color: #493846;
+    background: linear-gradient(135deg, #eaf7ff, #f7fbff);
+    color: #234;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
-
-/* ================================================= */
-/* ของตกแต่งลอย */
-/* ================================================= */
-
-.floating {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.floating span {
-    position: absolute;
-    bottom: -60px;
-    font-size: 25px;
-    opacity: 0.65;
-    animation: floatUp 10s linear infinite;
-}
-
-.floating span:nth-child(1) {
-    left: 5%;
-    animation-delay: 0s;
-}
-
-.floating span:nth-child(2) {
-    left: 15%;
-    animation-delay: 3s;
-}
-
-.floating span:nth-child(3) {
-    left: 28%;
-    animation-delay: 6s;
-}
-
-.floating span:nth-child(4) {
-    left: 40%;
-    animation-delay: 1s;
-}
-
-.floating span:nth-child(5) {
-    left: 55%;
-    animation-delay: 5s;
-}
-
-.floating span:nth-child(6) {
-    left: 68%;
-    animation-delay: 2s;
-}
-
-.floating span:nth-child(7) {
-    left: 80%;
-    animation-delay: 7s;
-}
-
-.floating span:nth-child(8) {
-    left: 92%;
-    animation-delay: 4s;
-}
-
-@keyframes floatUp {
-
-    0% {
-        bottom: -60px;
-        transform: translateX(0) rotate(0deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: 0.7;
-    }
-
-    50% {
-        transform: translateX(35px) rotate(180deg);
-    }
-
-    100% {
-        bottom: 110%;
-        transform: translateX(-30px) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-
-/* ================================================= */
-/* เมนูด้านบน */
-/* ================================================= */
+/* =========================
+   NAVBAR
+========================= */
 
 nav {
-    width: 100%;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 5px 25px rgba(218,100,150,0.15);
-
-    padding: 15px 20px;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-
     position: sticky;
     top: 0;
-
     z-index: 1000;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+}
 
-    border-bottom: 2px solid rgba(255,170,200,0.25);
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: #9b5275;
-
-    padding: 10px 15px;
-
+    color: #1677b8;
     font-weight: bold;
-
+    padding: 10px 15px;
+    border-radius: 20px;
     cursor: pointer;
-
-    border-radius: 25px;
-
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: white;
-
-    background: linear-gradient(
-        135deg,
-        #ff91b8,
-        #f46f9d
-    );
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 5px 15px rgba(244,111,157,0.25);
+    background: #dff3ff;
+    transform: translateY(-2px);
 }
 
-
-/* ================================================= */
-/* หน้า */
-/* ================================================= */
+/* =========================
+   PAGE
+========================= */
 
 .page {
     display: none;
-
-    min-height: calc(100vh - 70px);
-
-    padding: 60px 8% 130px;
-
-    animation: pageAppear 0.6s ease;
-
-    position: relative;
-
-    z-index: 1;
+    min-height: calc(100vh - 80px);
+    padding: 50px 20px 120px;
 }
 
 .page.active {
     display: block;
-}
-
-@keyframes pageAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .container {
@@ -217,981 +81,580 @@ nav a:hover {
     margin: auto;
 }
 
-
-/* ================================================= */
-/* หน้าแรก */
-/* ================================================= */
-
-.hero {
-    text-align: center;
-
-    padding: 90px 20px;
-
-    background: rgba(255,255,255,0.65);
-
-    border-radius: 45px;
-
-    box-shadow:
-        0 15px 40px rgba(210,90,140,0.12);
-
-    border: 2px solid rgba(255,255,255,0.8);
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "♡";
-
-    position: absolute;
-
-    top: 20px;
-    left: 30px;
-
-    font-size: 45px;
-
-    color: #ff9fc1;
-
-    animation: heartbeat 2s infinite;
-}
-
-.hero::after {
-    content: "✦";
-
-    position: absolute;
-
-    right: 35px;
-    bottom: 25px;
-
-    font-size: 40px;
-
-    color: #86c9ed;
-
-    animation: spin 4s linear infinite;
-}
-
-.hero h1 {
-    font-size: 60px;
-
-    color: #e75b91;
-
-    margin-bottom: 15px;
-
-    text-shadow:
-        0 5px 15px rgba(231,91,145,0.15);
-}
-
-.hero h2 {
-    font-size: 30px;
-
-    color: #9b5275;
-
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-
-    line-height: 1.9;
-
-    color: #6d6370;
-
-    max-width: 800px;
-
-    margin: auto;
-}
-
-
-/* ================================================= */
-/* หัวข้อ */
-/* ================================================= */
+/* =========================
+   TITLE
+========================= */
 
 .title {
     text-align: center;
-
-    margin-bottom: 45px;
-
-    position: relative;
+    margin-bottom: 35px;
 }
 
 .title h1 {
     font-size: 42px;
-
-    color: #e75b91;
-
-    margin-bottom: 10px;
-
-    text-shadow:
-        0 4px 10px rgba(231,91,145,0.12);
-}
-
-.title h1::after {
-    content: " ♡ ✦ ♡ ";
-
-    display: block;
-
-    font-size: 20px;
-
-    color: #82c8eb;
-
-    margin-top: 8px;
+    color: #1677b8;
+    margin-bottom: 8px;
 }
 
 .title p {
-    color: #a06c83;
-
+    color: #6b9dbb;
+    font-size: 18px;
     letter-spacing: 2px;
 }
 
-
-/* ================================================= */
-/* กล่องข้อมูล */
-/* ================================================= */
+/* =========================
+   CARD
+========================= */
 
 .card {
-    background: rgba(255,255,255,0.92);
-
+    background: rgba(255,255,255,0.95);
     border-radius: 25px;
-
-    padding: 35px;
-
+    padding: 30px;
     margin-bottom: 25px;
-
-    box-shadow:
-        0 10px 30px rgba(208,91,139,0.12);
-
-    border: 2px solid rgba(255,182,211,0.25);
-
-    position: relative;
-
-    transition: all 0.4s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 15px 35px rgba(208,91,139,0.18);
-}
-
-.card::before {
-    content: "♡";
-
-    position: absolute;
-
-    top: 15px;
-    right: 20px;
-
-    color: #ff9fc1;
-
-    font-size: 25px;
+    box-shadow: 0 8px 25px rgba(35,119,184,0.12);
+    border: 1px solid #d9effc;
 }
 
 .card h2 {
-    color: #d95789;
-
+    color: #1677b8;
     margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #298bc8;
+    margin-bottom: 10px;
 }
 
 .card p {
     line-height: 1.9;
-
-    color: #665c65;
+    color: #456;
 }
 
+/* =========================
+   HOME
+========================= */
 
-/* ================================================= */
-/* แนะนำตัว */
-/* ================================================= */
-
-.profile {
-    display: grid;
-
-    grid-template-columns: 250px 1fr;
-
-    gap: 40px;
-
-    align-items: center;
-}
-
-.profile-image {
-    width: 180px;
-
-    height: 180px;
-
-    border-radius: 50%;
-
-    background: linear-gradient(
-        135deg,
-        #ffd2e3,
-        #d9f1ff
-    );
-
+.home-box {
+    min-height: 75vh;
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    overflow: hidden;
-
-    border: 6px solid white;
-
-    box-shadow:
-        0 8px 25px rgba(221,94,145,0.2);
-
-    margin: auto;
-
-    animation: imageFloat 3s ease-in-out infinite;
 }
 
-.profile-image img {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.profile-info h2 {
-    color: #d95789;
-
-    margin-bottom: 20px;
-}
-
-.profile-info p {
-    margin: 10px 0;
-
-    line-height: 1.8;
-}
-
-
-/* ================================================= */
-/* แอนิเมชัน */
-/* ================================================= */
-
-@keyframes imageFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-@keyframes heartbeat {
-
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-@keyframes spin {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* ================================================= */
-/* การศึกษา */
-/* ================================================= */
-
-.timeline {
-    border-left: 5px solid #ff9fc1;
-
-    padding-left: 30px;
-}
-
-.timeline-item {
-    background: rgba(255,255,255,0.94);
-
-    padding: 25px;
-
-    margin-bottom: 25px;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 8px 25px rgba(208,91,139,0.10);
-
-    position: relative;
-
-    transition: 0.3s;
-}
-
-.timeline-item:hover {
-    transform: translateX(7px);
-}
-
-.timeline-item::before {
-    content: "♥";
-
-    position: absolute;
-
-    left: -49px;
-
-    top: 25px;
-
-    width: 35px;
-
-    height: 35px;
-
-    border-radius: 50%;
-
-    background: #ff8fb7;
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    box-shadow:
-        0 4px 10px rgba(255,143,183,0.3);
-}
-
-.timeline-item h2 {
-    color: #d95789;
-
-    margin-bottom: 10px;
-}
-
-.timeline-item p {
-    color: #665c65;
-
-    line-height: 1.8;
-}
-
-
-/* ================================================= */
-/* มหาวิทยาลัย */
-/* ================================================= */
-
-.university {
+.home-content {
+    background: rgba(255,255,255,0.95);
+    border-radius: 35px;
+    padding: 50px 30px;
     text-align: center;
-
-    background: rgba(255,255,255,0.94);
-
-    padding: 55px 30px;
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 12px 35px rgba(208,91,139,0.12);
-
-    border: 2px solid rgba(255,182,211,0.3);
-
-    position: relative;
-
-    overflow: hidden;
+    max-width: 850px;
+    width: 100%;
+    box-shadow: 0 12px 35px rgba(22,119,184,0.15);
 }
 
-.university::before {
-    content: "🌸";
-
-    position: absolute;
-
-    top: 20px;
-    left: 25px;
-
-    font-size: 30px;
-
-    animation: heartbeat 2s infinite;
+.home-content img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 7px solid #d9f1ff;
+    margin-bottom: 25px;
 }
 
-.university::after {
-    content: "✨";
-
-    position: absolute;
-
-    right: 25px;
-    bottom: 20px;
-
-    font-size: 30px;
-
-    animation: spin 4s linear infinite;
-}
-
-.university .icon {
-    font-size: 70px;
-
-    margin-bottom: 20px;
-
-    animation: imageFloat 3s ease-in-out infinite;
-}
-
-.university h2 {
-    color: #d95789;
-
-    font-size: 30px;
-
+.home-content h1 {
+    font-size: 38px;
+    color: #1677b8;
     margin-bottom: 15px;
 }
 
-.university h3 {
-    color: #9b5275;
+.home-content h2 {
+    color: #438bb3;
+    margin-bottom: 15px;
+}
 
-    margin-bottom: 20px;
+.home-content p {
+    line-height: 1.8;
+    color: #567;
+}
 
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.about-image img {
+    width: 260px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 6px solid #d9f1ff;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid #e5f3fa;
     line-height: 1.7;
 }
 
-.university p {
-    color: #665c65;
-
-    line-height: 1.9;
+.info-list li:last-child {
+    border-bottom: none;
 }
 
+.info-list strong {
+    color: #1677b8;
+}
 
-/* ================================================= */
-/* ผลงาน */
-/* ================================================= */
+/* =========================
+   EDUCATION
+========================= */
 
-.works {
+.education-box {
+    text-align: center;
+}
+
+.education-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   UNIVERSITY
+========================= */
+
+.university-box {
+    text-align: center;
+}
+
+.university-box h2 {
+    font-size: 30px;
+    color: #1677b8;
+    margin-bottom: 15px;
+}
+
+.university-box h3 {
+    font-size: 23px;
+    color: #3f91bd;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   WORKS
+========================= */
+
+.work-grid {
     display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
 .work-card {
-    background: rgba(255,255,255,0.95);
-
-    border-radius: 25px;
-
+    background: white;
+    border-radius: 22px;
     overflow: hidden;
-
-    box-shadow:
-        0 10px 28px rgba(208,91,139,0.12);
-
-    transition: all 0.4s ease;
-
-    border: 2px solid rgba(255,182,211,0.25);
+    box-shadow: 0 7px 22px rgba(22,119,184,0.12);
+    transition: 0.3s;
 }
 
 .work-card:hover {
-    transform: translateY(-8px) rotate(0.5deg);
-
-    box-shadow:
-        0 18px 35px rgba(208,91,139,0.2);
+    transform: translateY(-7px);
 }
 
-.work-image {
+.work-card img {
     width: 100%;
-
-    aspect-ratio: 4 / 3;
-
-    background: linear-gradient(
-        135deg,
-        #ffddea,
-        #e1f4ff
-    );
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-.work-image::after {
-    content: "♡";
-
-    position: absolute;
-
-    right: 15px;
-    top: 10px;
-
-    color: white;
-
-    font-size: 30px;
-
-    text-shadow:
-        0 2px 8px rgba(0,0,0,0.15);
-}
-
-.work-image img {
-    width: 100%;
-
-    height: 100%;
-
+    height: 220px;
     object-fit: cover;
-
-    display: block;
-
-    transition: transform 0.5s ease;
 }
 
-.work-card:hover .work-image img {
-    transform: scale(1.05);
+.work-card-content {
+    padding: 20px;
 }
 
-.work-content {
-    padding: 25px;
-}
-
-.work-content h2 {
-    color: #d95789;
-
+.work-card h3 {
+    color: #1677b8;
     margin-bottom: 10px;
 }
 
-.work-content p {
-    color: #665c65;
-
-    line-height: 1.8;
-
-    margin-bottom: 8px;
+.work-card p {
+    color: #567;
+    line-height: 1.7;
 }
 
+/* =========================
+   PROJECT
+========================= */
 
-/* ================================================= */
-/* การปฏิบัติงาน */
-/* ================================================= */
-
-.practice-box {
+.project-box {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
 
+.project-box img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 5px solid #dff3ff;
+}
+
+.project-content h2 {
+    color: #1677b8;
+    margin-bottom: 15px;
+}
+
+.project-content p {
+    line-height: 1.9;
+    color: #567;
+}
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice-grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     gap: 25px;
 }
 
 .practice-card {
-    background: rgba(255,255,255,0.95);
-
-    border-radius: 25px;
-
+    background: white;
+    border-radius: 22px;
     overflow: hidden;
-
-    box-shadow:
-        0 10px 28px rgba(208,91,139,0.12);
-
-    border: 2px solid rgba(255,182,211,0.25);
-
-    transition: all 0.4s ease;
+    box-shadow: 0 7px 22px rgba(22,119,184,0.12);
 }
 
-.practice-card:hover {
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 18px 35px rgba(208,91,139,0.20);
-}
-
-.practice-image {
+.practice-card img {
     width: 100%;
-
-    aspect-ratio: 4 / 3;
-
-    background: linear-gradient(
-        135deg,
-        #dff5ff,
-        #ffe0ed
-    );
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-.practice-image img {
-    width: 100%;
-
-    height: 100%;
-
+    height: 220px;
     object-fit: cover;
-
-    display: block;
-
-    transition: transform 0.5s ease;
 }
 
-.practice-card:hover img {
-    transform: scale(1.06);
+.practice-card div {
+    padding: 20px;
 }
 
-.practice-content {
-    padding: 22px;
-
-    text-align: center;
-}
-
-.practice-content h2 {
-    color: #d95789;
-
+.practice-card h3 {
+    color: #1677b8;
     margin-bottom: 10px;
 }
 
-.practice-content p {
-    color: #665c65;
-
-    line-height: 1.8;
+.practice-card p {
+    color: #567;
+    line-height: 1.7;
 }
 
+/* =========================
+   SKILLS
+========================= */
 
-/* ================================================= */
-/* ปุ่มด้านล่าง */
-/* ================================================= */
+.skills-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 25px;
+}
 
-.bottom-buttons {
-    position: fixed;
+.skill-card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 7px 22px rgba(22,119,184,0.12);
+    border: 1px solid #e0f3fc;
+}
 
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-
-    background: rgba(255,255,255,0.94);
-
-    backdrop-filter: blur(12px);
-
-    padding: 14px 20px;
-
+.skill-top {
     display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    box-shadow:
-        0 -5px 20px rgba(208,91,139,0.12);
-
-    z-index: 999;
-
-    border-top: 2px solid rgba(255,182,211,0.25);
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
 }
 
-.btn {
-    border: none;
-
-    padding: 13px 25px;
-
-    border-radius: 30px;
-
-    background: linear-gradient(
-        135deg,
-        #ff91b8,
-        #e75b91
-    );
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: all 0.3s ease;
-
-    box-shadow:
-        0 6px 15px rgba(231,91,145,0.2);
+.skill-icon {
+    font-size: 38px;
 }
 
-.btn:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 20px rgba(231,91,145,0.3);
+.skill-card h3 {
+    color: #1677b8;
+    margin: 0;
 }
 
-.btn.home {
-    background: linear-gradient(
-        135deg,
-        #8ac8e8,
-        #579fc5
-    );
+.skill-card p {
+    color: #567;
+    line-height: 1.7;
+    margin-bottom: 15px;
 }
 
-.btn.home:hover {
-    background: linear-gradient(
-        135deg,
-        #579fc5,
-        #4289ad
-    );
+.skill-bar {
+    width: 100%;
+    height: 12px;
+    background: #e6f4fb;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-
-/* ================================================= */
-/* Scrollbar */
-/* ================================================= */
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #ffeaf2;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        #ff9fc1,
-        #8bcbea
-    );
-
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, #63c5f5, #1677b8);
     border-radius: 20px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #e75b91;
+.skill-percent {
+    text-align: right;
+    color: #1677b8;
+    font-weight: bold;
+    margin-top: 7px;
 }
 
+/* =========================
+   BOTTOM BUTTONS
+========================= */
 
-/* ================================================= */
-/* มือถือ */
-/* ================================================= */
+.bottom-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.96);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 -3px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+}
 
-@media (max-width: 700px) {
+.bottom-buttons button {
+    border: none;
+    background: #1677b8;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    nav {
-        overflow-x: auto;
+.bottom-buttons button:hover {
+    background: #0d5d91;
+    transform: translateY(-2px);
+}
 
-        justify-content: flex-start;
+/* =========================
+   RESPONSIVE
+========================= */
 
-        flex-wrap: nowrap;
-
-        white-space: nowrap;
-
-        padding: 12px;
-    }
-
-    nav a {
-        font-size: 14px;
-
-        padding: 9px 12px;
-    }
-
-    .page {
-        padding: 40px 18px 115px;
-    }
-
-    .hero {
-        padding: 60px 15px;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero h2 {
-        font-size: 24px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
+@media (max-width: 800px) {
 
     .title h1 {
         font-size: 32px;
     }
 
-    .profile {
+    .about-grid {
         grid-template-columns: 1fr;
-
         text-align: center;
     }
 
-    .profile-image {
-        width: 150px;
-        height: 150px;
+    .work-grid {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .works {
+    .practice-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-box {
         grid-template-columns: 1fr;
     }
 
-    .practice-box {
+    .skills-box {
         grid-template-columns: 1fr;
-    }
-
-    .card {
-        padding: 25px 20px;
-    }
-
-    .bottom-buttons {
-        gap: 5px;
-
-        padding: 9px;
-    }
-
-    .btn {
-        padding: 10px 12px;
-
-        font-size: 13px;
-    }
-
-    .floating span {
-        font-size: 18px;
     }
 }
 
+@media (max-width: 550px) {
+
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .page {
+        padding: 35px 15px 110px;
+    }
+
+    .home-content {
+        padding: 35px 20px;
+    }
+
+    .home-content h1 {
+        font-size: 28px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-buttons button {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================================================= -->
-<!-- ของตกแต่ง -->
-<!-- ================================================= -->
-
-<div class="floating">
-
-    <span>♡</span>
-    <span>✦</span>
-    <span>🌸</span>
-    <span>♡</span>
-    <span>✧</span>
-    <span>💗</span>
-    <span>✦</span>
-    <span>🌷</span>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- เมนู -->
-<!-- ================================================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
+    <div class="nav-container">
 
-    <a onclick="showPage('home')">
-        🏠 หน้าแรก
-    </a>
+        <a onclick="showPage('home')">
+            🏠 หน้าหลัก
+        </a>
 
-    <a onclick="showPage('preface')">
-        🌸 คำนำ
-    </a>
+        <a onclick="showPage('preface')">
+            📖 คำนำ
+        </a>
 
-    <a onclick="showPage('about')">
-        💗 แนะนำตัว
-    </a>
+        <a onclick="showPage('about')">
+            👤 แนะนำตัว
+        </a>
 
-    <a onclick="showPage('education')">
-        🎓 การศึกษา
-    </a>
+        <a onclick="showPage('education')">
+            🎓 การศึกษา
+        </a>
 
-    <a onclick="showPage('university')">
-        🏫 มหาวิทยาลัยที่อยากเข้า
-    </a>
+        <a onclick="showPage('university')">
+            🏫 มหาวิทยาลัย
+        </a>
 
-    <a onclick="showPage('proud')">
-        🏆 ผลงานที่ภูมิใจ
-    </a>
+        <a onclick="showPage('proud')">
+            🏆 ผลงาน
+        </a>
 
-    <a onclick="showPage('projects')">
-        💡 โครงงาน/ชิ้นงาน
-    </a>
+        <a onclick="showPage('projects')">
+            🛠️ โครงงาน
+        </a>
 
-    <a onclick="showPage('practice')">
-        🧪 การปฏิบัติงาน
-    </a>
+        <a onclick="showPage('practice')">
+            🧪 กิจกรรม
+        </a>
 
+        <a onclick="showPage('skills')">
+            ⭐ ทักษะ
+        </a>
+
+    </div>
 </nav>
 
 
-<!-- ================================================= -->
-<!-- หน้า 1 : หน้าแรก -->
-<!-- ================================================= -->
+<!-- =========================
+     HOME
+========================= -->
 
 <section id="home" class="page active">
 
-    <div class="hero">
+    <div class="container home-box">
 
-        <h1>PORTFOLIO</h1>
+        <div class="home-content">
 
-        <h2>แฟ้มสะสมผลงาน</h2>
+            <img src="profile.jpg.jpeg" alt="รูปโปรไฟล์">
 
-        <p>
-            คณะสหเวชศาสตร์ สาขารังสีเทคนิค<br>
-            มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
-        </p>
+            <h1>แฟ้มสะสมผลงาน</h1>
 
-        <br>
+            <h2>PORTFOLIO</h2>
 
-        <p>
-            แฟ้มสะสมผลงานฉบับนี้จัดทำขึ้นเพื่อรวบรวม
-            ประวัติส่วนตัว ประวัติการศึกษา ผลงาน
-            กิจกรรม และประสบการณ์ต่าง ๆ
-            ที่สะท้อนถึงความตั้งใจและความสนใจ
-            ในการศึกษาต่อด้านรังสีเทคนิค
-        </p>
+            <p>
+                คณะสหเวชศาสตร์<br>
+                สาขารังสีเทคนิค<br>
+                มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
+            </p>
+
+            <br>
+
+            <p>
+                <strong>น.ส.เขมจิรา เชตวัน</strong><br>
+                ชื่อเล่น โมจิ
+            </p>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- หน้า 2 : คำนำ -->
-<!-- ================================================= -->
+<!-- =========================
+     PREFACE
+========================= -->
 
 <section id="preface" class="page">
 
     <div class="container">
 
         <div class="title">
-
             <h1>คำนำ</h1>
-
             <p>PREFACE</p>
-
         </div>
 
         <div class="card">
 
+            <h2>คำนำ</h2>
+
             <p>
-                แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้
-                จัดทำขึ้นเพื่อรวบรวมข้อมูลเกี่ยวกับประวัติส่วนตัว
-                ประวัติการศึกษา ผลงาน กิจกรรม
-                โครงงาน และประสบการณ์ต่าง ๆ
-                ที่ได้สั่งสมตลอดช่วงการศึกษา
+                แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้จัดทำขึ้นเพื่อรวบรวม
+                ประวัติส่วนตัว ประวัติการศึกษา ผลงาน กิจกรรม
+                โครงงาน และทักษะความสามารถของข้าพเจ้า
+                เพื่อใช้ประกอบการพิจารณาในการศึกษาต่อระดับมหาวิทยาลัย
             </p>
 
             <br>
 
             <p>
-                ข้าพเจ้ามีความสนใจในด้านวิทยาศาสตร์สุขภาพ
-                และมีความตั้งใจที่จะศึกษาต่อใน
-                คณะสหเวชศาสตร์ สาขารังสีเทคนิค
-                มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
-                เนื่องจากเป็นสาขาที่ผสมผสานความรู้
-                ด้านวิทยาศาสตร์ เทคโนโลยี
-                และการดูแลผู้ป่วยเข้าด้วยกัน
+                ข้าพเจ้ามีความสนใจในด้านวิทยาศาสตร์ เทคโนโลยี
+                และวิทยาศาสตร์สุขภาพ โดยเฉพาะสาขารังสีเทคนิค
+                ซึ่งเป็นศาสตร์ที่นำความรู้ทางวิทยาศาสตร์และเทคโนโลยี
+                มาประยุกต์ใช้ในการตรวจวินิจฉัยทางการแพทย์
             </p>
 
             <br>
 
             <p>
-                ข้าพเจ้าหวังว่าแฟ้มสะสมผลงานฉบับนี้
-                จะช่วยสะท้อนถึงความสามารถ ความตั้งใจ
-                ความรับผิดชอบ และความพร้อม
-                ในการศึกษาต่อในระดับมหาวิทยาลัย
+                ข้าพเจ้าหวังว่าแฟ้มสะสมผลงานเล่มนี้จะสะท้อนให้เห็นถึง
+                ความตั้งใจ ความรับผิดชอบ ความสามารถ
+                และประสบการณ์ที่ได้สั่งสมมา
+                รวมถึงความมุ่งมั่นในการศึกษาต่อ
+                และพัฒนาตนเองในอนาคต
             </p>
 
         </div>
@@ -1201,83 +664,67 @@ nav a:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- หน้า 3 : แนะนำตัว -->
-<!-- ================================================= -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about" class="page">
 
     <div class="container">
 
         <div class="title">
-
             <h1>แนะนำตัว</h1>
-
             <p>ABOUT ME</p>
-
         </div>
 
-        <div class="card profile">
+        <div class="card about-grid">
 
-            <div class="profile-image">
+            <div class="about-image">
 
-                <img
-                    src="profile.jpg.jpeg"
-                    alt="รูปโปรไฟล์"
-                >
+                <img src="profile.jpg.jpeg" alt="รูปของฉัน">
 
             </div>
 
-            <div class="profile-info">
+            <div>
 
                 <h2>ข้อมูลส่วนตัว</h2>
 
-                <p>
-                    <b>ชื่อ - นามสกุล:</b>
-                    น.ส.เขมจิรา เชตวัน
-                </p>
+                <ul class="info-list">
 
-                <p>
-                    <b>ชื่อเล่น:</b>
-                    โมจิ
-                </p>
+                    <li>
+                        <strong>ชื่อ-นามสกุล :</strong>
+                        น.ส.เขมจิรา เชตวัน
+                    </li>
 
-                <p>
-                    <b>วันเกิด:</b>
-                    21 พฤษภาคม 2552
-                </p>
+                    <li>
+                        <strong>ชื่อเล่น :</strong>
+                        โมจิ
+                    </li>
 
-                <p>
-                    <b>โรงเรียน:</b>
-                    บ้านบึงอุตสาหกรรมนุเคราะห์
-                </p>
+                    <li>
+                        <strong>วันเกิด :</strong>
+                        21 พฤษภาคม 2552
+                    </li>
 
-                <p>
-                    <b>แผนการเรียน:</b>
-                    เตรียมวิศวกรรมศาสตร์
-                </p>
+                    <li>
+                        <strong>โรงเรียน :</strong>
+                        บ้านบึงอุตสาหกรรมนุเคราะห์
+                    </li>
 
-                <p>
-                    <b>ความสนใจ:</b>
-                    วิทยาศาสตร์ เทคโนโลยี
-                    และวิทยาศาสตร์สุขภาพ
-                </p>
+                    <li>
+                        <strong>แผนการเรียน :</strong>
+                        เตรียมวิศวกรรมศาสตร์
+                    </li>
+
+                    <li>
+                        <strong>ความสนใจ :</strong>
+                        วิทยาศาสตร์ เทคโนโลยี
+                        และวิทยาศาสตร์สุขภาพ
+                    </li>
+
+                </ul>
 
             </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <h2>เป้าหมายของฉัน</h2>
-
-            <p>
-                เป้าหมายของข้าพเจ้าคือการได้ศึกษาต่อในสาขารังสีเทคนิค
-                และพัฒนาความรู้ความสามารถด้านเทคโนโลยีทางการแพทย์
-                เพื่อนำความรู้ไปใช้ในการทำงาน
-                และเป็นส่วนหนึ่งในการช่วยเหลือผู้ป่วย
-            </p>
 
         </div>
 
@@ -1286,56 +733,53 @@ nav a:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- หน้า 4 : การศึกษา -->
-<!-- ================================================= -->
+<!-- =========================
+     EDUCATION
+========================= -->
 
 <section id="education" class="page">
 
     <div class="container">
 
         <div class="title">
-
             <h1>รายละเอียดการศึกษา</h1>
-
             <p>EDUCATION</p>
+        </div>
+
+        <div class="card education-box">
+
+            <div class="education-icon">
+                🎓
+            </div>
+
+            <h2>
+                โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
+            </h2>
+
+            <p>
+                แผนการเรียนเตรียมวิศวกรรมศาสตร์
+            </p>
+
+            <br>
+
+            <p>
+                ข้าพเจ้าให้ความสนใจในการเรียนรู้ด้านวิทยาศาสตร์
+                เทคโนโลยี และการประยุกต์ใช้ความรู้
+                เพื่อพัฒนาทักษะในการศึกษาต่อระดับมหาวิทยาลัย
+            </p>
 
         </div>
 
-        <div class="timeline">
+        <div class="card">
 
-            <div class="timeline-item">
+            <h2>เป้าหมายทางการศึกษา</h2>
 
-                <h2>ระดับมัธยมศึกษาตอนต้น</h2>
-
-                <p>
-                    โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
-                </p>
-
-                <p>
-                    ปีการศึกษา 2566
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <h2>ระดับมัธยมศึกษาตอนปลาย</h2>
-
-                <p>
-                    โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์
-                </p>
-
-                <p>
-                    แผนการเรียน เตรียมวิศวกรรมศาสตร์
-                </p>
-
-                <p>
-                    ปีการศึกษา 2569
-                </p>
-
-            </div>
+            <p>
+                มุ่งมั่นที่จะศึกษาต่อในระดับมหาวิทยาลัย
+                และพัฒนาความรู้ทางด้านวิทยาศาสตร์สุขภาพ
+                โดยนำความรู้และทักษะที่ได้รับไปประยุกต์ใช้
+                ในการประกอบอาชีพในอนาคต
+            </p>
 
         </div>
 
@@ -1344,43 +788,47 @@ nav a:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- หน้า 5 : มหาวิทยาลัย -->
-<!-- ================================================= -->
+<!-- =========================
+     UNIVERSITY
+========================= -->
 
 <section id="university" class="page">
 
     <div class="container">
 
         <div class="title">
-
             <h1>มหาวิทยาลัยที่อยากเข้า</h1>
-
             <p>MY DREAM UNIVERSITY</p>
-
         </div>
 
-        <div class="university">
+        <div class="card university-box">
 
-            <div class="icon">🎓</div>
+            <div style="font-size:70px; margin-bottom:20px;">
+                🏫
+            </div>
 
             <h2>
                 มหาวิทยาลัยธรรมศาสตร์
             </h2>
 
             <h3>
-                คณะสหเวชศาสตร์<br>
-                สาขารังสีเทคนิค<br>
                 ศูนย์รังสิต
             </h3>
 
+            <h2>
+                คณะสหเวชศาสตร์
+            </h2>
+
+            <h3>
+                สาขารังสีเทคนิค
+            </h3>
+
             <p>
-                ข้าพเจ้ามีความตั้งใจที่จะศึกษาต่อ
-                ในคณะสหเวชศาสตร์ สาขารังสีเทคนิค
-                มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต
-                เพราะมีความสนใจในวิทยาศาสตร์สุขภาพ
-                เทคโนโลยีทางการแพทย์
-                และการนำความรู้ไปใช้ในการดูแลผู้ป่วย
+                ข้าพเจ้ามีความสนใจที่จะศึกษาต่อในสาขารังสีเทคนิค
+                เนื่องจากเป็นสาขาที่ผสมผสานความรู้ด้านวิทยาศาสตร์
+                เทคโนโลยี และวิทยาศาสตร์สุขภาพเข้าด้วยกัน
+                และมีบทบาทสำคัญในการช่วยสนับสนุนการตรวจวินิจฉัย
+                ทางการแพทย์
             </p>
 
         </div>
@@ -1390,44 +838,35 @@ nav a:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- หน้า 6 : ผลงานที่ภูมิใจ -->
-<!-- ================================================= -->
+<!-- =========================
+     PROUD WORKS
+========================= -->
 
 <section id="proud" class="page">
 
     <div class="container">
 
         <div class="title">
-
             <h1>ผลงานที่ภูมิใจ</h1>
-
-            <p>PROUD OF MY WORK</p>
-
+            <p>MY PROUD WORKS</p>
         </div>
 
-        <div class="works">
-
-
-            <!-- ผลงาน 1 -->
+        <div class="work-grid">
 
             <div class="work-card">
 
-                <div class="work-image">
+                <img src="work1.jpg.jpeg" alt="ผลงานที่ 1">
 
-                    <img
-                        src="work1.jpg.jpeg"
-                        alt="ผลงานที่ 1"
-                    >
+                <div class="work-card-content">
 
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 1</h2>
+                    <h3>
+                        สตาฟวันวิทยาศาสตร์
+                    </h3>
 
                     <p>
                         เป็นสตาฟวันวิทยาศาสตร์และเทคโนโลยี
+                        ได้ฝึกการทำงานร่วมกับผู้อื่น
+                        การประสานงาน และความรับผิดชอบ
                     </p>
 
                 </div>
@@ -1435,272 +874,40 @@ nav a:hover {
             </div>
 
 
-            <!-- ผลงาน 2 -->
-
             <div class="work-card">
 
-                <div class="work-image">
+                <img src="work2.jpg.jpeg" alt="ผลงานที่ 2">
 
-                    <img
-                        src="work2.jpg.jpeg"
-                        alt="ผลงานที่ 2"
-                    >
+                <div class="work-card-content">
 
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 2</h2>
+                    <h3>
+                        Mini Startup Camp
+                    </h3>
 
                     <p>
                         เข้าร่วม Workshop KMITL
-                        (Mini Startup Camp)
+                        เพื่อเรียนรู้แนวคิดด้าน Startup
+                        การทำงานเป็นทีม และการพัฒนาไอเดีย
                     </p>
 
                 </div>
 
             </div>
-
-
-            <!-- ผลงาน 3 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work3.jpg.jpeg"
-                        alt="ผลงานที่ 3"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 3</h2>
-
-                    <p>
-                        เข้าร่วมกิจกรรมทางวิทยาศาสตร์
-                        และเทคโนโลยี
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ผลงาน 4 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work4.jpg.jpeg"
-                        alt="ผลงานที่ 4"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 4</h2>
-
-                    <p>
-                        เข้าร่วมกิจกรรมพัฒนาทักษะ
-                        และการทำงานร่วมกับผู้อื่น
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ผลงาน 5 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work5.jpg.jpeg"
-                        alt="ผลงานที่ 5"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 5</h2>
-
-                    <p>
-                        กิจกรรมส่งเสริมการเรียนรู้
-                        ด้านวิทยาศาสตร์
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ผลงาน 6 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work6.jpg.jpeg"
-                        alt="ผลงานที่ 6"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 6</h2>
-
-                    <p>
-                        กิจกรรมการเรียนรู้
-                        และพัฒนาประสบการณ์
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ผลงาน 7 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work7.jpg.jpeg"
-                        alt="ผลงานที่ 7"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 7</h2>
-
-                    <p>
-                        เข้าร่วมกิจกรรมพัฒนาทักษะ
-                        การสื่อสารและการทำงานเป็นทีม
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ผลงาน 8 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work8.jpg.jpeg"
-                        alt="ผลงานที่ 8"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 8</h2>
-
-                    <p>
-                        ผลงานจากกิจกรรม
-                        ด้านวิทยาศาสตร์และเทคโนโลยี
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ผลงาน 9 -->
-
-            <div class="work-card">
-
-                <div class="work-image">
-
-                    <img
-                        src="work9.jpg.jpeg"
-                        alt="ผลงานที่ 9"
-                    >
-
-                </div>
-
-                <div class="work-content">
-
-                    <h2>ผลงานที่ 9</h2>
-
-                    <p>
-                        กิจกรรมและประสบการณ์
-                        ที่ภาคภูมิใจ
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================================================= -->
-<!-- หน้า 7 : โครงงาน -->
-<!-- ================================================= -->
-
-<section id="projects" class="page">
-
-    <div class="container">
-
-        <div class="title">
-
-            <h1>โครงงาน / ชิ้นงาน</h1>
-
-            <p>PROJECTS &amp; WORKS</p>
-
-        </div>
-
-        <div class="works">
 
 
             <div class="work-card">
 
-                <div class="work-image">
+                <img src="work3.jpg.jpeg" alt="ผลงานที่ 3">
 
-                    <img
-                        src="project1.jpg.jpeg"
-                        alt="โครงงานที่ 1"
-                    >
+                <div class="work-card-content">
 
-                </div>
-
-                <div class="work-content">
-
-                    <h2>โครงงานที่ 1</h2>
+                    <h3>
+                        กิจกรรมที่ 3
+                    </h3>
 
                     <p>
-                        <b>ชื่อโครงงาน:</b>
-                        สบู่เด้งดึ๋งพกพา
-                    </p>
-
-                    <p>
-                        <b>รายละเอียด:</b>
-                        จัดทำขึ้นเพื่อพัฒนาสบู่ที่พกพาง่าย
-                        สะดวกสบาย และใช้งานได้สะดวก
+                        เข้าร่วมกิจกรรมและเก็บเกี่ยว
+                        ประสบการณ์เพื่อพัฒนาตนเอง
                     </p>
 
                 </div>
@@ -1708,67 +915,18 @@ nav a:hover {
             </div>
 
 
-        </div>
+            <div class="work-card">
 
-    </div>
+                <img src="work4.jpg.jpeg" alt="ผลงานที่ 4">
 
-</section>
+                <div class="work-card-content">
 
-
-<!-- ================================================= -->
-<!-- หน้า 8 : การปฏิบัติงาน -->
-<!-- ================================================= -->
-
-<section id="practice" class="page">
-
-    <div class="container">
-
-        <div class="title">
-
-            <h1>การปฏิบัติงาน</h1>
-
-            <p>PRACTICAL EXPERIENCE</p>
-
-        </div>
-
-
-        <div class="card">
-
-            <h2>ประสบการณ์การปฏิบัติงาน</h2>
-
-            <p>
-                รวบรวมภาพการปฏิบัติงาน กิจกรรม
-                และประสบการณ์ที่ได้ลงมือปฏิบัติจริง
-                เพื่อแสดงถึงความรับผิดชอบ
-                การทำงานร่วมกับผู้อื่น
-                และการเรียนรู้จากประสบการณ์
-            </p>
-
-        </div>
-
-
-        <div class="practice-box">
-
-
-            <!-- ปฏิบัติงาน 1 -->
-
-            <div class="practice-card">
-
-                <div class="practice-image">
-
-                    <img
-                        src="practice1.jpg.jpeg"
-                        alt="ภาพการปฏิบัติงานที่ 1"
-                    >
-
-                </div>
-
-                <div class="practice-content">
-
-                    <h2>การปฏิบัติงานที่ 1</h2>
+                    <h3>
+                        กิจกรรมที่ 4
+                    </h3>
 
                     <p>
-                        ภาพกิจกรรมการปฏิบัติงาน
+                        ฝึกทักษะการทำงาน
                         และการเรียนรู้จากประสบการณ์จริง
                     </p>
 
@@ -1777,26 +935,19 @@ nav a:hover {
             </div>
 
 
-            <!-- ปฏิบัติงาน 2 -->
+            <div class="work-card">
 
-            <div class="practice-card">
+                <img src="work5.jpg.jpeg" alt="ผลงานที่ 5">
 
-                <div class="practice-image">
+                <div class="work-card-content">
 
-                    <img
-                        src="practice2.jpg.jpeg"
-                        alt="ภาพการปฏิบัติงานที่ 2"
-                    >
-
-                </div>
-
-                <div class="practice-content">
-
-                    <h2>การปฏิบัติงานที่ 2</h2>
+                    <h3>
+                        กิจกรรมที่ 5
+                    </h3>
 
                     <p>
+                        พัฒนาความสามารถและเรียนรู้
                         การทำงานร่วมกับผู้อื่น
-                        และการฝึกทักษะการปฏิบัติ
                     </p>
 
                 </div>
@@ -1804,28 +955,525 @@ nav a:hover {
             </div>
 
 
-            <!-- ปฏิบัติงาน 3 -->
+            <div class="work-card">
 
-            <div class="practice-card">
+                <img src="work6.jpg.jpeg" alt="ผลงานที่ 6">
 
-                <div class="practice-image">
+                <div class="work-card-content">
 
-                    <img
-                        src="practice3.jpg.jpeg"
-                        alt="ภาพการปฏิบัติงานที่ 3"
-                    >
+                    <h3>
+                        กิจกรรมที่ 6
+                    </h3>
+
+                    <p>
+                        ฝึกความรับผิดชอบและการจัดการเวลา
+                        ผ่านการเข้าร่วมกิจกรรม
+                    </p>
 
                 </div>
 
-                <div class="practice-content">
+            </div>
 
-                    <h2>การปฏิบัติงานที่ 3</h2>
+
+            <div class="work-card">
+
+                <img src="work7.jpg.jpeg" alt="ผลงานที่ 7">
+
+                <div class="work-card-content">
+
+                    <h3>
+                        กิจกรรมที่ 7
+                    </h3>
 
                     <p>
-                        การนำความรู้ไปประยุกต์ใช้
-                        ผ่านการลงมือปฏิบัติจริง
+                        เรียนรู้ทักษะใหม่ ๆ
+                        และนำประสบการณ์มาพัฒนาตนเอง
                     </p>
 
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <img src="work8.jpg.jpeg" alt="ผลงานที่ 8">
+
+                <div class="work-card-content">
+
+                    <h3>
+                        กิจกรรมที่ 8
+                    </h3>
+
+                    <p>
+                        ฝึกการคิดวิเคราะห์
+                        และการแก้ไขปัญหาอย่างเป็นระบบ
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <img src="work9.jpg.jpeg" alt="ผลงานที่ 9">
+
+                <div class="work-card-content">
+
+                    <h3>
+                        กิจกรรมที่ 9
+                    </h3>
+
+                    <p>
+                        สะสมประสบการณ์และพัฒนาความมั่นใจ
+                        ในการทำกิจกรรมต่าง ๆ
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects" class="page">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>โครงงาน / ชิ้นงาน</h1>
+            <p>PROJECT</p>
+        </div>
+
+        <div class="card project-box">
+
+            <div>
+
+                <img src="project1.jpg.jpeg" alt="สบู่เด้งดึ๋งพกพา">
+
+            </div>
+
+            <div class="project-content">
+
+                <h2>
+                    สบู่เด้งดึ๋งพกพา
+                </h2>
+
+                <p>
+                    โครงงานสบู่เด้งดึ๋งพกพา
+                    จัดทำขึ้นเพื่อพัฒนาสบู่ที่สามารถพกพาได้ง่าย
+                    มีความสะดวกสบาย และสามารถใช้งานได้สะดวก
+                </p>
+
+                <br>
+
+                <p>
+                    การจัดทำโครงงานช่วยฝึกทักษะการคิดสร้างสรรค์
+                    การวางแผน การทดลอง การแก้ไขปัญหา
+                    และการทำงานร่วมกับผู้อื่น
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRACTICE
+========================= -->
+
+<section id="practice" class="page">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>กิจกรรม / ประสบการณ์</h1>
+            <p>ACTIVITIES & EXPERIENCE</p>
+        </div>
+
+        <div class="practice-grid">
+
+            <div class="practice-card">
+
+                <img src="practice1.jpg.jpeg" alt="กิจกรรมปฏิบัติที่ 1">
+
+                <div>
+
+                    <h3>
+                        การเรียนรู้จากการปฏิบัติ
+                    </h3>
+
+                    <p>
+                        ได้ฝึกการลงมือทำจริง
+                        และเรียนรู้จากประสบการณ์
+                        ที่เกิดขึ้นระหว่างการทำกิจกรรม
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="practice-card">
+
+                <img src="practice2.jpg.jpeg" alt="กิจกรรมปฏิบัติที่ 2">
+
+                <div>
+
+                    <h3>
+                        การทำงานร่วมกัน
+                    </h3>
+
+                    <p>
+                        ได้ฝึกการทำงานเป็นทีม
+                        การแบ่งหน้าที่
+                        และการช่วยเหลือซึ่งกันและกัน
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="practice-card">
+
+                <img src="practice3.jpg.jpeg" alt="กิจกรรมปฏิบัติที่ 3">
+
+                <div>
+
+                    <h3>
+                        การพัฒนาตนเอง
+                    </h3>
+
+                    <p>
+                        เรียนรู้สิ่งใหม่ ๆ
+                        และนำประสบการณ์มาพัฒนาความสามารถ
+                        ของตนเองอย่างต่อเนื่อง
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills" class="page">
+
+    <div class="container">
+
+        <div class="title">
+
+            <h1>ทักษะ</h1>
+
+            <p>
+                MY SKILLS
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                ทักษะและความสามารถ
+            </h2>
+
+            <p>
+                ข้าพเจ้ามีความสนใจในการพัฒนาทักษะ
+                ทั้งด้านวิทยาศาสตร์ เทคโนโลยี
+                การทำงานร่วมกับผู้อื่น
+                และการเรียนรู้จากประสบการณ์จริง
+                ซึ่งเป็นทักษะสำคัญสำหรับการศึกษาต่อ
+                และการทำงานในสายวิทยาศาสตร์สุขภาพ
+            </p>
+
+        </div>
+
+
+        <div class="skills-box">
+
+
+            <!-- SKILL 1 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        🔬
+                    </div>
+
+                    <h3>
+                        วิทยาศาสตร์
+                    </h3>
+
+                </div>
+
+                <p>
+                    มีความสนใจด้านวิทยาศาสตร์
+                    และสามารถนำความรู้พื้นฐานมาใช้
+                    ในการคิดและวิเคราะห์อย่างเป็นระบบ
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:85%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    85%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 2 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        เทคโนโลยีและคอมพิวเตอร์
+                    </h3>
+
+                </div>
+
+                <p>
+                    สนใจการใช้เทคโนโลยีและคอมพิวเตอร์
+                    รวมถึงการทำงานด้านดิจิทัล
+                    และการสร้างเว็บไซต์พื้นฐาน
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:80%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    80%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 3 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        การทำงานเป็นทีม
+                    </h3>
+
+                </div>
+
+                <p>
+                    สามารถทำงานร่วมกับผู้อื่น
+                    รับฟังความคิดเห็น
+                    และช่วยแบ่งหน้าที่เพื่อให้งานสำเร็จ
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:90%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    90%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 4 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        🗣️
+                    </div>
+
+                    <h3>
+                        การสื่อสาร
+                    </h3>
+
+                </div>
+
+                <p>
+                    สามารถสื่อสารและแลกเปลี่ยนความคิดเห็น
+                    กับผู้อื่นได้อย่างเหมาะสม
+                    และพร้อมรับฟังความคิดเห็นที่แตกต่าง
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:85%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    85%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 5 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        การคิดวิเคราะห์และแก้ปัญหา
+                    </h3>
+
+                </div>
+
+                <p>
+                    สามารถวิเคราะห์ปัญหา
+                    พิจารณาข้อมูล
+                    และหาวิธีแก้ไขอย่างเป็นขั้นตอน
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:85%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    85%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 6 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        ⏰
+                    </div>
+
+                    <h3>
+                        ความรับผิดชอบ
+                    </h3>
+
+                </div>
+
+                <p>
+                    มีความรับผิดชอบต่อหน้าที่
+                    ตรงต่อเวลา
+                    และพยายามทำงานที่ได้รับมอบหมายให้สำเร็จ
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:90%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    90%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 7 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        🧪
+                    </div>
+
+                    <h3>
+                        การเรียนรู้จากการปฏิบัติ
+                    </h3>
+
+                </div>
+
+                <p>
+                    ชอบเรียนรู้จากการลงมือทำจริง
+                    และสามารถนำบทเรียนจากกิจกรรม
+                    และโครงงานมาประยุกต์ใช้
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:85%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    85%
+                </div>
+
+            </div>
+
+
+            <!-- SKILL 8 -->
+
+            <div class="skill-card">
+
+                <div class="skill-top">
+
+                    <div class="skill-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        ความรอบคอบ
+                    </h3>
+
+                </div>
+
+                <p>
+                    ให้ความสำคัญกับความถูกต้อง
+                    ตรวจสอบงานก่อนส่ง
+                    และพร้อมแก้ไขข้อผิดพลาด
+                </p>
+
+                <div class="skill-bar">
+                    <div class="skill-level" style="width:90%;"></div>
+                </div>
+
+                <div class="skill-percent">
+                    90%
                 </div>
 
             </div>
@@ -1838,39 +1486,30 @@ nav a:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- ปุ่มด้านล่าง -->
-<!-- ================================================= -->
+<!-- =========================
+     BOTTOM BUTTONS
+========================= -->
 
 <div class="bottom-buttons">
 
-    <button
-        class="btn home"
-        onclick="goHome()"
-    >
-        🏠 กลับหน้าแรก
+    <button onclick="goHome()">
+        🏠 หน้าหลัก
     </button>
 
-    <button
-        class="btn"
-        onclick="previousPage()"
-    >
-        ← ย้อนกลับ
+    <button onclick="previousPage()">
+        ◀ ก่อนหน้า
     </button>
 
-    <button
-        class="btn"
-        onclick="nextPage()"
-    >
-        หน้าถัดไป →
+    <button onclick="nextPage()">
+        ถัดไป ▶
     </button>
 
 </div>
 
 
-<!-- ================================================= -->
-<!-- JAVASCRIPT -->
-<!-- ================================================= -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
@@ -1882,15 +1521,12 @@ const pages = [
     "university",
     "proud",
     "projects",
-    "practice"
+    "practice",
+    "skills"
 ];
 
 let currentPage = 0;
 
-
-/* ================================================= */
-/* เปลี่ยนหน้า */
-/* ================================================= */
 
 function showPage(pageId) {
 
@@ -1904,7 +1540,9 @@ function showPage(pageId) {
 
     });
 
+
     const target = document.getElementById(pageId);
+
 
     if (target) {
 
@@ -1921,10 +1559,6 @@ function showPage(pageId) {
 
 }
 
-
-/* ================================================= */
-/* หน้าถัดไป */
-/* ================================================= */
 
 function nextPage() {
 
@@ -1943,10 +1577,6 @@ function nextPage() {
 }
 
 
-/* ================================================= */
-/* หน้าย้อนกลับ */
-/* ================================================= */
-
 function previousPage() {
 
     if (currentPage > 0) {
@@ -1963,10 +1593,6 @@ function previousPage() {
 
 }
 
-
-/* ================================================= */
-/* กลับหน้าแรก */
-/* ================================================= */
 
 function goHome() {
 
