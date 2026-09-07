@@ -1,409 +1,1021 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | แฟ้มสะสมผลงาน</title>
+<title>Portfolio | แฟ้มสะสมผลงาน</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Tahoma, sans-serif;
-        }
+<style>
 
-        body {
-            background: linear-gradient(135deg, #eaf6ff, #f8fbff);
-            color: #243447;
-            min-height: 100vh;
-        }
+/* ================================================= */
+/* พื้นฐาน */
+/* ================================================= */
 
-        /* ===== เมนูด้านบน ===== */
-
-        nav {
-            width: 100%;
-            background: rgba(255,255,255,0.96);
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #315b7d;
-            padding: 9px 13px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: white;
-            background: #65b5df;
-        }
-
-        /* ===== หน้า ===== */
-
-        .page {
-            display: none;
-            min-height: calc(100vh - 70px);
-            padding: 60px 8% 120px;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        /* ===== หน้าแรก ===== */
-
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .hero h1 {
-            font-size: 55px;
-            color: #176b9e;
-            margin-bottom: 20px;
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            color: #315b7d;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            line-height: 1.9;
-            color: #5d7183;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        /* ===== หัวข้อ ===== */
-
-        .title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .title h1 {
-            font-size: 42px;
-            color: #176b9e;
-            margin-bottom: 12px;
-        }
-
-        .title p {
-            color: #688092;
-        }
-
-        /* ===== กล่องข้อมูล ===== */
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 25px rgba(34,91,125,0.10);
-        }
-
-        .card h2 {
-            color: #176b9e;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            line-height: 1.9;
-            color: #536777;
-        }
-
-        /* ===== แนะนำตัว ===== */
-
-        .profile {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .profile-image {
-    width: 96px;
-    height: 96px;
-    border-radius: 20px;
-    background: #dcfefa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: 3px solid #9bc9e4;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Tahoma, sans-serif;
 }
 
-.profile-image img {
-    width: 96px;
-    height: 96px;
-    object-fit: cover;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,182,211,0.45), transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(180,225,255,0.45), transparent 25%),
+        linear-gradient(135deg, #fff0f6, #ffe5f0, #eaf7ff);
+
+    color: #493846;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* ================================================= */
+/* ของตกแต่งลอย */
+/* ================================================= */
+
+.floating {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating span {
+    position: absolute;
+    bottom: -60px;
+    font-size: 25px;
+    opacity: 0.65;
+    animation: floatUp 10s linear infinite;
+}
+
+/* ตำแหน่ง */
+
+.floating span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.floating span:nth-child(2) {
+    left: 15%;
+    animation-delay: 3s;
+}
+
+.floating span:nth-child(3) {
+    left: 28%;
+    animation-delay: 6s;
+}
+
+.floating span:nth-child(4) {
+    left: 40%;
+    animation-delay: 1s;
+}
+
+.floating span:nth-child(5) {
+    left: 55%;
+    animation-delay: 5s;
+}
+
+.floating span:nth-child(6) {
+    left: 68%;
+    animation-delay: 2s;
+}
+
+.floating span:nth-child(7) {
+    left: 80%;
+    animation-delay: 7s;
+}
+
+.floating span:nth-child(8) {
+    left: 92%;
+    animation-delay: 4s;
+}
+
+@keyframes floatUp {
+
+    0% {
+        bottom: -60px;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(35px) rotate(180deg);
+    }
+
+    100% {
+        bottom: 110%;
+        transform: translateX(-30px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* ================================================= */
+/* เมนูด้านบน */
+/* ================================================= */
+
+nav {
+    width: 100%;
+
+    background: rgba(255,255,255,0.92);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 5px 25px rgba(218,100,150,0.15);
+
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 2px solid rgba(255,170,200,0.25);
+}
+
+nav a {
+    text-decoration: none;
+
+    color: #9b5275;
+
+    padding: 10px 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border-radius: 25px;
+
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ff91b8,
+        #f46f9d
+    );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 15px rgba(244,111,157,0.25);
+}
+
+
+/* ================================================= */
+/* หน้า */
+/* ================================================= */
+
+.page {
+    display: none;
+
+    min-height: calc(100vh - 70px);
+
+    padding: 60px 8% 130px;
+
+    animation: pageAppear 0.6s ease;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.page.active {
     display: block;
 }
 
-        .profile-info h2 {
-            color: #176b9e;
-            margin-bottom: 20px;
-        }
+@keyframes pageAppear {
 
-        .profile-info p {
-            margin: 10px 0;
-            line-height: 1.8;
-        }
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
 
-        /* ===== การศึกษา ===== */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .timeline {
-            border-left: 4px solid #65b5df;
-            padding-left: 30px;
-        }
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
 
-        .timeline-item {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-        }
 
-        .timeline-item h2 {
-            color: #176b9e;
-            margin-bottom: 10px;
-        }
+/* ================================================= */
+/* หน้าแรก */
+/* ================================================= */
 
-        .timeline-item p {
-            color: #536777;
-            line-height: 1.8;
-        }
+.hero {
+    text-align: center;
 
-        /* ===== มหาวิทยาลัย ===== */
+    padding: 90px 20px;
 
-        .university {
-            text-align: center;
-            background: white;
-            padding: 50px 30px;
-            border-radius: 25px;
-            box-shadow: 0 8px 25px rgba(34,91,125,0.12);
-        }
+    background: rgba(255,255,255,0.65);
 
-        .university .icon {
-            font-size: 70px;
-            margin-bottom: 20px;
-        }
+    border-radius: 45px;
 
-        .university h2 {
-            color: #176b9e;
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
+    box-shadow:
+        0 15px 40px rgba(210,90,140,0.12);
 
-        .university h3 {
-            color: #315b7d;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
+    border: 2px solid rgba(255,255,255,0.8);
 
-        .university p {
-            color: #536777;
-            line-height: 1.9;
-        }
+    position: relative;
 
-        /* ===== ผลงาน ===== */
-
-        .works {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .work-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 7px 22px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .work-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .work-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: #dceefa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
+}
+
+.hero::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 20px;
+    left: 30px;
+
+    font-size: 45px;
+
+    color: #ff9fc1;
+
+    animation: heartbeat 2s infinite;
+}
+
+.hero::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 35px;
+    bottom: 25px;
+
+    font-size: 40px;
+
+    color: #86c9ed;
+
+    animation: spin 4s linear infinite;
+}
+
+.hero h1 {
+    font-size: 60px;
+
+    color: #e75b91;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 5px 15px rgba(231,91,145,0.15);
+}
+
+.hero h2 {
+    font-size: 30px;
+
+    color: #9b5275;
+
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #6d6370;
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+
+/* ================================================= */
+/* หัวข้อ */
+/* ================================================= */
+
+.title {
+    text-align: center;
+
+    margin-bottom: 45px;
+
+    position: relative;
+}
+
+.title h1 {
+    font-size: 42px;
+
+    color: #e75b91;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 4px 10px rgba(231,91,145,0.12);
+}
+
+.title h1::after {
+    content: " ♡ ✦ ♡ ";
+
+    display: block;
+
+    font-size: 20px;
+
+    color: #82c8eb;
+
+    margin-top: 8px;
+}
+
+.title p {
+    color: #a06c83;
+
+    letter-spacing: 2px;
+}
+
+
+/* ================================================= */
+/* กล่องข้อมูล */
+/* ================================================= */
+
+.card {
+    background: rgba(255,255,255,0.92);
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(208,91,139,0.12);
+
+    border: 2px solid rgba(255,182,211,0.25);
+
+    position: relative;
+
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(208,91,139,0.18);
+}
+
+.card::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    color: #ff9fc1;
+
+    font-size: 25px;
+}
+
+.card h2 {
+    color: #d95789;
+
+    margin-bottom: 15px;
+}
+
+.card p {
+    line-height: 1.9;
+
+    color: #665c65;
+}
+
+
+/* ================================================= */
+/* แนะนำตัว */
+/* ================================================= */
+
+.profile {
+    display: grid;
+
+    grid-template-columns: 250px 1fr;
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+.profile-image {
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #ffd2e3,
+        #d9f1ff
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 6px solid white;
+
+    box-shadow:
+        0 8px 25px rgba(221,94,145,0.2);
+
+    margin: auto;
+
+    animation: imageFloat 3s ease-in-out infinite;
+}
+
+.profile-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.profile-info h2 {
+    color: #d95789;
+
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    margin: 10px 0;
+
+    line-height: 1.8;
+}
+
+
+/* ================================================= */
+/* แอนิเมชันรูป */
+/* ================================================= */
+
+@keyframes imageFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================================================= */
+/* การศึกษา */
+/* ================================================= */
+
+.timeline {
+    border-left: 5px solid #ff9fc1;
+
+    padding-left: 30px;
+}
+
+.timeline-item {
+    background: rgba(255,255,255,0.94);
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(208,91,139,0.10);
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+.timeline-item:hover {
+    transform: translateX(7px);
+}
+
+.timeline-item::before {
+    content: "♥";
+
+    position: absolute;
+
+    left: -49px;
+
+    top: 25px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #ff8fb7;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 4px 10px rgba(255,143,183,0.3);
+}
+
+.timeline-item h2 {
+    color: #d95789;
+
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    color: #665c65;
+
+    line-height: 1.8;
+}
+
+
+/* ================================================= */
+/* มหาวิทยาลัย */
+/* ================================================= */
+
+.university {
+    text-align: center;
+
+    background: rgba(255,255,255,0.94);
+
+    padding: 55px 30px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 12px 35px rgba(208,91,139,0.12);
+
+    border: 2px solid rgba(255,182,211,0.3);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.university::before {
+    content: "🌸";
+
+    position: absolute;
+
+    top: 20px;
+    left: 25px;
+
+    font-size: 30px;
+
+    animation: heartbeat 2s infinite;
+}
+
+.university::after {
+    content: "✨";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 20px;
+
+    font-size: 30px;
+
+    animation: spin 4s linear infinite;
+}
+
+.university .icon {
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    animation: imageFloat 3s ease-in-out infinite;
+}
+
+.university h2 {
+    color: #d95789;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.university h3 {
+    color: #9b5275;
+
+    margin-bottom: 20px;
+
+    line-height: 1.7;
+}
+
+.university p {
+    color: #665c65;
+
+    line-height: 1.9;
+}
+
+
+/* ================================================= */
+/* ผลงาน */
+/* ================================================= */
+
+.works {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.work-card {
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 28px rgba(208,91,139,0.12);
+
+    transition: all 0.4s ease;
+
+    border: 2px solid rgba(255,182,211,0.25);
+}
+
+.work-card:hover {
+    transform: translateY(-8px) rotate(0.5deg);
+
+    box-shadow:
+        0 18px 35px rgba(208,91,139,0.2);
+}
+
+.work-image {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    background: linear-gradient(
+        135deg,
+        #ffddea,
+        #e1f4ff
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.work-image::after {
+    content: "♡";
+
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    color: white;
+
+    font-size: 30px;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.15);
 }
 
 .work-image img {
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
     display: block;
+
+    transition: transform 0.5s ease;
 }
 
-        .work-content h2 {
-            color: #176b9e;
-            margin-bottom: 10px;
-        }
+.work-card:hover .work-image img {
+    transform: scale(1.05);
+}
 
-        .work-content p {
-            color: #627585;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
+.work-content {
+    padding: 25px;
+}
 
-        /* ===== ปุ่มด้านล่าง ===== */
+.work-content h2 {
+    color: #d95789;
 
-        .bottom-buttons {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.97);
-            padding: 14px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
-            z-index: 999;
-        }
+    margin-bottom: 10px;
+}
 
-        .btn {
-            border: none;
-            padding: 13px 25px;
-            border-radius: 30px;
-            background: #176b9e;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.work-content p {
+    color: #665c65;
 
-        .btn:hover {
-            background: #0d527c;
-            transform: translateY(-2px);
-        }
+    line-height: 1.8;
 
-        .btn.home {
-            background: #6d91a8;
-        }
+    margin-bottom: 8px;
+}
 
-        .btn.home:hover {
-            background: #506f83;
-        }
 
-        /* ===== มือถือ ===== */
+/* ================================================= */
+/* ปุ่มด้านล่าง */
+/* ================================================= */
 
-        @media (max-width: 700px) {
+.bottom-buttons {
+    position: fixed;
 
-            nav {
-                overflow-x: auto;
-                justify-content: flex-start;
-                flex-wrap: nowrap;
-                white-space: nowrap;
-            }
+    bottom: 0;
+    left: 0;
 
-            nav a {
-                font-size: 14px;
-            }
+    width: 100%;
 
-            .page {
-                padding: 40px 20px 110px;
-            }
+    background: rgba(255,255,255,0.94);
 
-            .hero {
-                padding: 60px 10px;
-            }
+    backdrop-filter: blur(12px);
 
-            .hero h1 {
-                font-size: 38px;
-            }
+    padding: 14px 20px;
 
-            .hero h2 {
-                font-size: 24px;
-            }
+    display: flex;
 
-            .title h1 {
-                font-size: 32px;
-            }
+    justify-content: center;
 
-            .profile {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+    gap: 12px;
 
-            .profile-image {
-                margin: auto;
-            }
+    box-shadow:
+        0 -5px 20px rgba(208,91,139,0.12);
 
-            .works {
-                grid-template-columns: 1fr;
-            }
+    z-index: 999;
 
-            .bottom-buttons {
-                gap: 6px;
-                padding: 10px;
-            }
+    border-top: 2px solid rgba(255,182,211,0.25);
+}
 
-            .btn {
-                padding: 10px 13px;
-                font-size: 13px;
-            }
-        }
-    </style>
+.btn {
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff91b8,
+        #e75b91
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 6px 15px rgba(231,91,145,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 20px rgba(231,91,145,0.3);
+}
+
+.btn.home {
+    background: linear-gradient(
+        135deg,
+        #8ac8e8,
+        #579fc5
+    );
+}
+
+.btn.home:hover {
+    background: linear-gradient(
+        135deg,
+        #579fc5,
+        #4289ad
+    );
+}
+
+
+/* ================================================= */
+/* Scrollbar */
+/* ================================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffeaf2;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        #ff9fc1,
+        #8bcbea
+    );
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e75b91;
+}
+
+
+/* ================================================= */
+/* มือถือ */
+/* ================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        white-space: nowrap;
+
+        padding: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+
+        padding: 9px 12px;
+    }
+
+    .page {
+        padding: 40px 18px 115px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .title h1 {
+        font-size: 32px;
+    }
+
+    .profile {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .works {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    .bottom-buttons {
+        gap: 5px;
+
+        padding: 9px;
+    }
+
+    .btn {
+        padding: 10px 12px;
+
+        font-size: 13px;
+    }
+
+    .floating span {
+        font-size: 18px;
+    }
+}
+
+</style>
 </head>
 
+
 <body>
+
+
+<!-- ================================================= -->
+<!-- หัวใจ ดาว และของตกแต่งลอย -->
+<!-- ================================================= -->
+
+<div class="floating">
+
+    <span>♡</span>
+    <span>✦</span>
+    <span>🌸</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>💗</span>
+    <span>✦</span>
+    <span>🌷</span>
+
+</div>
+
 
 <!-- ================================================= -->
 <!-- เมนู -->
 <!-- ================================================= -->
 
 <nav>
-    <a onclick="showPage('home')">หน้าแรก</a>
-    <a onclick="showPage('preface')">คำนำ</a>
-    <a onclick="showPage('about')">แนะนำตัว</a>
-    <a onclick="showPage('education')">การศึกษา</a>
-    <a onclick="showPage('university')">มหาวิทยาลัยที่อยากเข้า</a>
-    <a onclick="showPage('proud')">ผลงานที่ภูมิใจ</a>
-    <a onclick="showPage('projects')">โครงงาน/ชิ้นงาน</a>
+
+    <a onclick="showPage('home')">🏠 หน้าแรก</a>
+
+    <a onclick="showPage('preface')">🌸 คำนำ</a>
+
+    <a onclick="showPage('about')">💗 แนะนำตัว</a>
+
+    <a onclick="showPage('education')">🎓 การศึกษา</a>
+
+    <a onclick="showPage('university')">
+        🏫 มหาวิทยาลัยที่อยากเข้า
+    </a>
+
+    <a onclick="showPage('proud')">
+        🏆 ผลงานที่ภูมิใจ
+    </a>
+
+    <a onclick="showPage('projects')">
+        💡 โครงงาน/ชิ้นงาน
+    </a>
+
 </nav>
 
 
@@ -448,8 +1060,11 @@
     <div class="container">
 
         <div class="title">
+
             <h1>คำนำ</h1>
+
             <p>PREFACE</p>
+
         </div>
 
         <div class="card">
@@ -499,14 +1114,19 @@
     <div class="container">
 
         <div class="title">
+
             <h1>แนะนำตัว</h1>
+
             <p>ABOUT ME</p>
+
         </div>
 
         <div class="card profile">
 
             <div class="profile-image">
-               <img src="profile.jpg.jpeg" alt="รูปโปรไฟล์">
+
+                <img src="profile.jpg.jpeg" alt="รูปโปรไฟล์">
+
             </div>
 
             <div class="profile-info">
@@ -548,6 +1168,7 @@
 
         </div>
 
+
         <div class="card">
 
             <h2>เป้าหมายของฉัน</h2>
@@ -575,8 +1196,11 @@
     <div class="container">
 
         <div class="title">
+
             <h1>รายละเอียดการศึกษา</h1>
+
             <p>EDUCATION</p>
+
         </div>
 
         <div class="timeline">
@@ -594,6 +1218,7 @@
                 </p>
 
             </div>
+
 
             <div class="timeline-item">
 
@@ -684,32 +1309,45 @@
 
         <div class="works">
 
-            <div class="work-card">
-
-    <div class="work-image">
-        <img src="work1.jpg.jpeg" alt="ผลงานที่ 1">
-    </div>
-
-    <div class="work-content">
-
-        <h2>ผลงานที่ 1</h2>
-
-        <p>
-            เป็นสตาฟวันวิทยาศาสตร์และเทคโนโลยี
-        </p>
-
-    </div>
-
-</div>
-
 
             <div class="work-card">
 
-               <div class="work-image">
-    <img src="work2.jpg.jpeg" alt="ผลงานที่ 2">
-</div>
+                <div class="work-image">
 
-<div class="work-content"> 
+                    <img
+                        src="work1.jpg.jpeg"
+                        alt="ผลงานที่ 1"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 1</h2>
+
+                    <p>
+                        เป็นสตาฟวันวิทยาศาสตร์และเทคโนโลยี
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="work2.jpg.jpeg"
+                        alt="ผลงานที่ 2"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>ผลงานที่ 2</h2>
 
                     <p>
                         เข้าร่วม Workshop KMITL
@@ -719,6 +1357,7 @@
                 </div>
 
             </div>
+
 
         </div>
 
@@ -745,13 +1384,21 @@
 
         <div class="works">
 
+
             <div class="work-card">
 
                 <div class="work-image">
-    <img src="project1.jpg.jpeg" alt="โครงงานที่ 1">
-</div>
 
-<div class="work-content">
+                    <img
+                        src="project1.jpg.jpeg"
+                        alt="โครงงานที่ 1"
+                    >
+
+                </div>
+
+                <div class="work-content">
+
+                    <h2>โครงงานที่ 1</h2>
 
                     <p>
                         <b>ชื่อโครงงาน:</b>
@@ -768,6 +1415,7 @@
 
             </div>
 
+
         </div>
 
     </div>
@@ -781,15 +1429,24 @@
 
 <div class="bottom-buttons">
 
-    <button class="btn home" onclick="goHome()">
+    <button
+        class="btn home"
+        onclick="goHome()"
+    >
         🏠 กลับหน้าแรก
     </button>
 
-    <button class="btn" onclick="previousPage()">
+    <button
+        class="btn"
+        onclick="previousPage()"
+    >
         ← ย้อนกลับ
     </button>
 
-    <button class="btn" onclick="nextPage()">
+    <button
+        class="btn"
+        onclick="nextPage()"
+    >
         หน้าถัดไป →
     </button>
 
@@ -815,7 +1472,9 @@ const pages = [
 let currentPage = 0;
 
 
-/* ===== เปลี่ยนหน้า ===== */
+/* ================================================= */
+/* เปลี่ยนหน้า */
+/* ================================================= */
 
 function showPage(pageId) {
 
@@ -841,11 +1500,15 @@ function showPage(pageId) {
             top: 0,
             behavior: "smooth"
         });
+
     }
+
 }
 
 
-/* ===== หน้าถัดไป ===== */
+/* ================================================= */
+/* หน้าถัดไป */
+/* ================================================= */
 
 function nextPage() {
 
@@ -860,10 +1523,13 @@ function nextPage() {
         showPage("home");
 
     }
+
 }
 
 
-/* ===== หน้าย้อนกลับ ===== */
+/* ================================================= */
+/* หน้าย้อนกลับ */
+/* ================================================= */
 
 function previousPage() {
 
@@ -878,10 +1544,13 @@ function previousPage() {
         showPage("home");
 
     }
+
 }
 
 
-/* ===== กลับหน้าแรก ===== */
+/* ================================================= */
+/* กลับหน้าแรก */
+/* ================================================= */
 
 function goHome() {
 
